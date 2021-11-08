@@ -1,0 +1,16 @@
+.carouselContainer {
+    height: 5rem;
+    border-bottom: 1px solid var(--black);
+    background-color: var(--blue);
+    grid-area: main;
+  }
+  
+  .carrouselContent {
+    width: 100%;
+    height: 5rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  
+    display: flex;
+    align-items: center;
+  }

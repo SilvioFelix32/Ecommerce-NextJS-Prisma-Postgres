@@ -1,0 +1,45 @@
+.footerHead {
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+
+.column {
+  display: block;
+  grid-area: footer;
+  text-align: center;  
+  align-items: center;
+}
+
+.footerContainer {
+  grid-area: footer;
+  text-align: center;  
+  align-items: center;
+  
+  display: flex;
+  justify-content:space-between;
+  background-color: var(--blue);
+
+  div {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.1rem;
+
+    a {
+      color: var(--white);
+      transition: filter 0.2s;
+  
+    &:hover {
+      filter: brightness(0.8);
+    }
+    }
+
+    span {
+      color: var(--white);
+    }
+  }
+  
+}
+
+
+

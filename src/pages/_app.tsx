@@ -1,20 +1,19 @@
+import React from "react";
 import Head from "next/head";
 import { AppProps } from "next/app";
-import { Header } from "../components/Header";
+import faviconLogo from '../../public/favicon.jpg'
 
-import "../styles/global.scss";
-import React from "react";
-import { SideBar } from "../components/SideBar";
+import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <link href="favicon.jpg" ></link>     {/* ADICIONAR O FAVICON */}
         <title>SfTech</title>
       </Head>
-      <Header />
-      <SideBar></SideBar>
       <Component {...pageProps} />
+     
     </>
   );
 }

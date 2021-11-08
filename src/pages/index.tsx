@@ -1,25 +1,26 @@
-import global from '../styles/global.scss'
-import { GetStaticProps } from "next";
-import Head from "next/head";
 import React from 'react';
+import { Carousel } from '../components/Carrousel';
 import { Header } from '../components/Header';
+import { TopNav } from "../components/TopNav/TopNav";
+import { TestiSlider } from "../components/TestiSlider/TestiSlider";
 
+import styles from "../styles/home.module.scss";
+import Footer from '../components/Footer/Footer';
+import BottomFooter from '../components/BottomFooter';
 
-interface HomeProps {
-  product: {
-    priceId: string;
-    amount: number;
-  };
-}
-
-export default function Home({ product }: HomeProps) {
+export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Inicio | SfTech</title>
-      </Head>
+    <div className={styles.container}>
+      <TopNav />
       <Header />
-    </>
+      <main className={styles.contentContainer}>
+        <TestiSlider />
+        <Carousel />
+        <img src="" alt="" />
+      </main>
+      <Footer />
+      <BottomFooter />
+    </div>
   );
 }
 

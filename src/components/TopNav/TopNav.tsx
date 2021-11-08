@@ -1,20 +1,22 @@
-import styles from "./Header.module.css";
+import React from "react";
+import styles from "./styles.module.scss";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 
-const TopNav = () => {
+export function TopNav() {
   return (
-    <div className="bg-gray500 text-gray100 hidden lg:block">
+    <div className={styles.container}>
       <div className="flex justify-between">
         <ul className={`flex ${styles.topLeftMenu}`}>
           <li>
-            <a href="https://github.com/SilvioFelix32">GitHub</a>
+            <BsLinkedin />
+            <a href="https://github.com/SilvioFelix32"> GitHub</a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/silviofelix32/">Linkedin</a>
+            <BsGithub />
+            <a href="https://www.linkedin.com/in/silviofelix32/"> Linkedin</a>
           </li>
         </ul>
       </div>
     </div>
   );
 };
-
-export default TopNav;
