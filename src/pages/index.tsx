@@ -14,7 +14,7 @@ export default function Home() {
       <TopNav />
       <Header />
       <main className={styles.contentContainer}>
-        <TestiSlider />
+       {/*  <TestiSlider /> */}
         <Carousel />
         <img src="" alt="" />
       </main>

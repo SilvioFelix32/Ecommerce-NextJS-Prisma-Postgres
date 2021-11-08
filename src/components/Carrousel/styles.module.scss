@@ -1,16 +1,28 @@
-.carouselContainer {
-    height: 5rem;
-    border-bottom: 1px solid var(--black);
-    background-color: var(--blue);
-    grid-area: main;
-  }
+.carousel {
+  grid-area: a;
+  text-align: center;  
+  align-items: center;
   
-  .carrouselContent {
-    width: 100%;
-    height: 5rem;
-    margin: 0 auto;
-    padding: 0 1rem;
+  display: flex;
+  background-color: var(--white);
+
+  div {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.1rem;
+
+    a {
+      color: var(--black);
+      transition: filter 0.2s;
   
-    display: flex;
-    align-items: center;
+    &:hover {
+      filter: brightness(0.8);
+    }
+    }
+
+    span {
+      color: var(--black);
+    }
   }
+}
