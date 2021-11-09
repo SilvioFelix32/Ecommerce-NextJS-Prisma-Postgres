@@ -1,43 +1,58 @@
 import React, { useState } from 'react';
+import Link from 'next/link'
 import styles from "./styles.module.scss";
-import { BsSearch } from 'react-icons/bs';
-import { FaBars } from "react-icons/fa";
 import { SignInButton } from "../SignInButton";
 import SideBar from "../SideBar";
+
+import { Modal } from '../Modal'
+import { FaBars } from "react-icons/fa";
 import 'react-pro-sidebar/dist/css/styles.css';
+import { BsSearch } from 'react-icons/bs';
 
 export function Header() {
-  const [isCollapsed, setIsCollapsed] = useState(false)
+  const [isCollapsed, setIsCollapsed] = useState(true)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <header className={styles.headerContainer}>
         <div className={styles.headerContent}>
-          <button
-            type="button"
+          <div
             className={styles.sideBar}
-            onClick={() => {
-              setIsCollapsed(prev => !prev)
-            }}
           >
-            <FaBars color="#fff" />
-          </button>
+            <button
+              type="button"
+              onClick={() => {
+                setIsCollapsed(prev => !prev)
+              }}
+            >
+              <FaBars color="#fff" />
+            </button>
+          </div>
           <nav>
-            <img src="/logo.jpg" alt="logo" /> 
+            <Link href="/#">
+              <img src="/Logo-SFTech.png" alt="logo" />
+            </Link>
           </nav>
-          <div>
-            <input  //COLOCAR A LUNETA <BsSearch>
+          <div className={styles.searchInput}>
+            <input
               type="text"
-              placeholder="Busque aqui"
-            >      
+              placeholder="Busque aqui seu produto"
+            >
             </input>
+            <BsSearch
+              className={styles.searchIcon}>
+              <Link href="/#"></Link>
+            </BsSearch>
           </div>
           <SignInButton
             style={{ marginLeft: "auto" }}
+            onClick={() => setIsOpen(true)}
           />
         </div>
       </header>
       <SideBar isCollapsed={isCollapsed} />
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 }

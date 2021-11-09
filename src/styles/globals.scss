@@ -7,6 +7,7 @@
 :root {
   --gray-100: #e1e1e6;
   --gray-300: #a8a8b3;
+  --gray-800: #8d8d96;
   --white: #ffffff;
   --black: #000;
   --blue: #2c6bc9;
@@ -54,9 +55,16 @@ a {
   grid-area: nav;
   color: var(--white) !important;
   height: 80vh !important;
+  width: 60px !important;
+  
+  align-items: center !important;
+  align-self: flex-start !important;
+  justify-content: center !important;
 
+  z-index: 0 !important;
+  
    &:hover {
-    width: 270px!important;
+    width: 250px!important;
   }
 }
 
@@ -77,5 +85,5 @@ a {
 }
 
   .pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout .pro-sidebar-footer {
-    margin-top: 9rem;
+    margin-top: auto;
 }

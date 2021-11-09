@@ -15,41 +15,6 @@
   justify-content: space-between;
 }
 
-.hero {
-  max-width: 600px;
-
-  > span {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-
-  h1 {
-    font-size: 4.5rem;
-    line-height: 4.5rem;
-    font-weight: 900;
-    margin-top: 2.5rem;
-
-    span {
-      color: gray;
-    }
-  }
-
-  p {
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-    margin-top: 1.5rem;
-
-    span {
-      color: gray;
-      font-weight: bold;
-    }
-  }
-
-  button {
-    margin-top: 2.5rem;
-  }
-}
-
 // Static Variables
 
 $admin-topnav-height: 2rem;
@@ -81,22 +46,7 @@ $admin-nav-width: 250px;
                           "footer footer"
                           "bfooter bfooter";
 
-  &__header {
-    flex-basis: 100%;
-    grid-area: header;
-    display: flex;
-    height: $admin-header-height;
-    background-color: #fff;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-    position: relative;
-  }
-
-  &__nav {
-    flex: 0 0 $admin-nav-width;
-    grid-area: nav;
-    background-color: #313541;
-  }
-
+ 
   @media screen and (min-width: 48rem) {
     --spacing: 2rem;
   }

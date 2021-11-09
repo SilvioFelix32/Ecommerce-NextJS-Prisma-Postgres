@@ -1,5 +1,4 @@
 import { FaUserCircle } from 'react-icons/fa';
-import { FiX } from 'react-icons/fi';
 import styles from "./styles.module.scss";
 import { signIn, signOut, useSession } from 'next-auth/client';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -19,7 +18,6 @@ export const SignInButton: React.FC<ButtonProps> = ({ ...rest }) => {
         >
             <FaUserCircle color="#ffa601" />
             Usuário
-            <FiX color="#737380" className={styles.closeIcon} />
         </button>
     ) : (
         <button

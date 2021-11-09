@@ -1,6 +1,8 @@
 .footerHead {
+  display: flex;
+  align-items: center;
+  justify-content:flex-start ;
   margin-bottom: 0.2rem;
-  text-align: center;
 }
 
 .column {
@@ -13,7 +15,8 @@
 .footerContainer {
   grid-area: footer;
   text-align: center;  
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 0.5rem;
   
   display: flex;
   justify-content:space-between;
