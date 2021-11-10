@@ -5,30 +5,32 @@
   align-items: center;
 
   display: flex;
-  background-color: var(--gray-300);
-
-  .handleprev {
-    margin: 1rem;
-    height: 20px;
-    width: 20px;
-  }
-
-  .handleNext {
-    margin: 1rem;
-    height: 20px;
-    width: 20px;
-  }
+  background-color: var(--white);
 
   div {
     height: 100%;
+    border-radius: 1rem;
     align-items: flex-start;
     justify-content: space-between;
     margin: 1rem 1rem 1rem 1rem;
-    background: var(--gray-800);
+    background: var(--orange);
 
-    span {
-      color: var(--black);
-      background: var(--blue);
+    button {
+      border-radius: 1rem;
+      height: 2rem;
+      width: 10rem;
+      border-radius: 0.5rem;
+      border: 0;
+
+      font-weight: bold;
+      background: var(--white);
+      color: var(--orange);
+
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
     }
   }
 }
@@ -39,30 +41,32 @@
   align-items: center;
 
   display: flex;
-  background-color: var(--gray-300);
-
-  .handleprev {
-    margin: 1rem;
-    height: 20px;
-    width: 20px;
-  }
-
-  .handleNext {
-    margin: 1rem;
-    height: 20px;
-    width: 20px;
-  }
+  background-color: var(--white);
 
   div {
     height: 100%;
+    border-radius: 1rem;
     align-items: flex-start;
     justify-content: space-between;
     margin: 1rem 1rem 1rem 1rem;
-    background: var(--gray-800);
+    background: var(--orange);
 
-    span {
-      color: var(--black);
-      background: var(--blue);
+    button {
+      border-radius: 1rem;
+      height: 2rem;
+      width: 10rem;
+      border-radius: 0.5rem;
+      border: 0;
+
+      font-weight: bold;
+      background: var(--white);
+      color: var(--orange);
+
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
     }
   }
 }
@@ -73,30 +77,77 @@
   align-items: center;
 
   display: flex;
-  background-color: var(--gray-300);
-
-  .handleprev {
-    margin: 1rem;
-    height: 20px;
-    width: 20px;
-  }
-
-  .handleNext {
-    margin: 1rem;
-    height: 20px;
-    width: 20px;
-  }
+  background-color: var(--white);
 
   div {
     height: 100%;
+    border-radius: 1rem;
     align-items: flex-start;
     justify-content: space-between;
     margin: 1rem 1rem 1rem 1rem;
-    background: var(--gray-800);
+    background: var(--orange);
 
-    span {
-      color: var(--black);
-      background: var(--blue);
+    button {
+      border-radius: 1rem;
+      height: 2rem;
+      width: 10rem;
+      border-radius: 0.5rem;
+      border: 0;
+
+      font-weight: bold;
+      background: var(--white);
+      color: var(--orange);
+
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
     }
+  }
+}
+
+.shoppingCart {
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 0.3rem;
+  height: 1rem;
+  width: 1rem;
+  color: var(--white);
+}
+
+.handleprev {
+  margin-left: 0.6rem;
+  margin-right: 0.6rem;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  color: var(--gray-800);
+
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+}
+
+.handleNext {
+  margin-left: 0.6rem;
+  margin-right: 0.6rem;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  color: var(--gray-800);
+
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(0.8);
   }
 }

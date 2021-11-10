@@ -1,19 +1,28 @@
-import React, { FC, useCallback, useEffect, useState } from "react";
-import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
-import styles from "./styles.module.scss"
+import React, { useCallback, useEffect, useState } from "react";
+import {
+  AiOutlineArrowRight,
+  AiOutlineArrowLeft,
+  AiOutlineShoppingCart
+}
+  from "react-icons/ai";
+import styles from "./styles.module.scss";
+import notebook from '../../../public/bg-img/notebook.png'
+interface notebook {
+  notebook: string
+}
 
 const images = [
   {
-    image: <img src="https://i.imgur.com/hLNO2Hb.jpg" />,
+    image: <img src={notebook} alt="Notebook1" />,
     name: "Notebook",
   },
   {
-    image: <img src="https://i.imgur.com/VyMbRyx.jpg" />,
-    name: "Notebook",
+    image: <img src="./notebook2.png" alt="Notebook2"  />,
+    name: "Notebook 2",
   },
   {
-    image: <img src="https://i.imgur.com/hn9sZkY.jpg" />,
-    name: "Notebook",
+    image: <img src="./notebook3.png" alt="Notebook3"  />,
+    name: "Notebook 3",
   },
 ];
 // animate__fadeIn
@@ -52,7 +61,7 @@ export function Carousel() {
         className={styles.carousel}>
         < AiOutlineArrowLeft
           className={styles.handleprev}
-          onClick={handlePrev}/> 
+          onClick={handlePrev} />
 
         <div className={styles.carouselSlide}>
           {images.map((ti, index) => {
@@ -62,7 +71,8 @@ export function Carousel() {
                   <div className={styles.laptop}>
                     <span>{ti.image}</span>
                   </div>
-                  <span>{ti.name}</span>
+                  <button><AiOutlineShoppingCart 
+                    className={styles.shoppingCart} /> {ti.name}</button>
                 </div>
               )
             );
@@ -87,7 +97,8 @@ export function Carousel() {
                   <div className={styles.laptop}>
                     <span>{ti.image}</span>
                   </div>
-                  <span>{ti.name}</span>
+                  <button><AiOutlineShoppingCart 
+                    className={styles.shoppingCart} /> {ti.name}</button>
                 </div>
               )
             );
@@ -112,7 +123,8 @@ export function Carousel() {
                   <div className={styles.laptop}>
                     <span>{ti.image}</span>
                   </div>
-                  <span>{ti.name}</span>
+                  <button><AiOutlineShoppingCart 
+                    className={styles.shoppingCart} /> {ti.name}</button>
                 </div>
               )
             );
