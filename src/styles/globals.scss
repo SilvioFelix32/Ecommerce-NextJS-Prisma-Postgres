@@ -56,16 +56,44 @@ a {
   color: var(--white) !important;
   height: 80vh !important;
   width: 60px !important;
-  
+
   align-items: center !important;
   align-self: flex-start !important;
   justify-content: center !important;
 
-  z-index: 0 !important;
-  
-   &:hover {
-    width: 250px!important;
+  z-index: 99 !important;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+
+  &:hover {
+    width: 250px !important;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
   }
+
+  &:hover ~ main {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+  }
+}
+
+.pro-sidebar.collapsed {
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
 
 .pro-sidebar > .pro-sidebar-inner {
@@ -84,6 +112,6 @@ a {
   background: var(--blue) !important;
 }
 
-  .pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout .pro-sidebar-footer {
-    margin-top: auto;
+.pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout .pro-sidebar-footer {
+  margin-top: auto;
 }

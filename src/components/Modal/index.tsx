@@ -1,6 +1,11 @@
 import { Modal as ModalComponent } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
+
+import Image from 'next/image';
+import Link from "next/link";
+
 import styles from "./styles.module.scss";
+import React from 'react';
 
 interface ModalProps {
     isOpen: boolean
@@ -31,9 +36,10 @@ export const Modal = ({ isOpen, setIsOpen }: ModalProps) => {
             </div>
             <div className={styles.textFooter}>
                 <button
+                    /* onClick="location.href='404.svg';" */
                     className={styles.signInButton}
                 >Entrar</button>
-                <p>Não tem uma conta? <a href="/">Cadastrar</a>.</p>
+                <p>Não tem uma conta?<Link href="/#">Cadastrar</Link>.</p>
             </div>
         </ModalComponent>
     );

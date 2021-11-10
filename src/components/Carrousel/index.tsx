@@ -5,26 +5,56 @@ import {
   AiOutlineShoppingCart
 }
   from "react-icons/ai";
+import Image from 'next/image';
+import Link from "next/link";
+
 import styles from "./styles.module.scss";
-import notebook from '../../../public/bg-img/notebook.png'
-interface notebook {
-  notebook: string
-}
 
 const images = [
   {
-    image: <img src={notebook} alt="Notebook1" />,
+    image: <Image src="/notebook.png" alt="Notebook 1" width="220" height="220" />,
     name: "Notebook",
   },
   {
-    image: <img src="./notebook2.png" alt="Notebook2"  />,
+    image: <Image src="/notebook2.png" alt="Notebook 2" width="220" height="220" />,
     name: "Notebook 2",
   },
   {
-    image: <img src="./notebook3.png" alt="Notebook3"  />,
+    image: <Image src="/notebook3.png" alt="Notebook 3" width="220" height="220" />,
     name: "Notebook 3",
   },
 ];
+
+const images2 = [
+  {
+    image: <Image src="/teclado1.png" alt="Teclado 1" width="220" height="220" />,
+    name: "Teclado 1",
+  },
+  {
+    image: <Image src="/teclado2.png" alt="Teclado 2" width="220" height="220" />,
+    name: "Teclado 2",
+  },
+  {
+    image: <Image src="/processador1.png" alt="Processador" width="220" height="220" />,
+    name: "Processador",
+  },
+]
+
+const images3 = [
+  {
+    image: <Image src="/roteador.png" alt="Roteador" width="220" height="220" />,
+    name: "Roteador",
+  },
+  {
+    image: <Image src="/roteador_2.png" alt="Roteador 2" width="220" height="220" />,
+    name: "Roteador 2",
+  },
+  {
+    image: <Image src="/processador1.png" alt="Processador" width="220" height="220" />,
+    name: "Processador",
+  },
+]
+
 // animate__fadeIn
 // animate__lightSpeedInRight
 export function Carousel() {
@@ -52,32 +82,76 @@ export function Carousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 4000);
+    }, 10000000);
     return () => clearInterval(interval);
   }, [handleNext]);
   return (
     <>
       <div
         className={styles.carousel}>
+        {images.map((ti, index) => {
         < AiOutlineArrowLeft
           className={styles.handleprev}
           onClick={handlePrev} />
+          return (
+            index === arrIndex && (
+              <div>
+                {ti.image}
+                <button><AiOutlineShoppingCart
+                  className={styles.shoppingCart} />{ti.name}</button>
+              </div>
+            )
+          );
+        })}
 
-        <div className={styles.carouselSlide}>
-          {images.map((ti, index) => {
-            return (
-              index === arrIndex && (
-                <div>
-                  <div className={styles.laptop}>
-                    <span>{ti.image}</span>
-                  </div>
-                  <button><AiOutlineShoppingCart 
-                    className={styles.shoppingCart} /> {ti.name}</button>
-                </div>
-              )
-            );
-          })}
-        </div>
+        {images2.map((ti, index) => {
+          return (
+            index === arrIndex && (
+              <div>
+                {ti.image}
+                <button><AiOutlineShoppingCart
+                  className={styles.shoppingCart} />{ti.name}</button>
+              </div>
+            )
+          );
+        })}
+
+        {images3.map((ti, index) => {
+          return (
+            index === arrIndex && (
+              <div>
+                {ti.image}
+                <button><AiOutlineShoppingCart
+                  className={styles.shoppingCart} />{ti.name}</button>
+              </div>
+            )
+          );
+        })}
+
+        {images3.map((ti, index) => {
+          return (
+            index === arrIndex && (
+              <div>
+                {ti.image}
+                <button><AiOutlineShoppingCart
+                  className={styles.shoppingCart} />{ti.name}</button>
+              </div>
+            )
+          );
+        })}
+
+        {images3.map((ti, index) => {
+          return (
+            index === arrIndex && (
+              <div>
+                {ti.image}
+                <button><AiOutlineShoppingCart
+                  className={styles.shoppingCart} />{ti.name}</button>
+              </div>
+            )
+          );
+        })}
+
         <AiOutlineArrowRight
           className={styles.handleNext}
           onClick={handleNext} />
@@ -88,48 +162,66 @@ export function Carousel() {
         < AiOutlineArrowLeft
           className={styles.handleprev}
           onClick={handlePrev} />
+        {images.map((ti, index) => {
+          return (
+            index === arrIndex && (
+              <div>
+                {ti.image}
+                <button><AiOutlineShoppingCart
+                  className={styles.shoppingCart} />{ti.name}</button>
+              </div>
+            )
+          );
+        })}
 
-        <div className={styles.carouselSlide}>
-          {images.map((ti, index) => {
-            return (
-              index === arrIndex && (
-                <div>
-                  <div className={styles.laptop}>
-                    <span>{ti.image}</span>
-                  </div>
-                  <button><AiOutlineShoppingCart 
-                    className={styles.shoppingCart} /> {ti.name}</button>
-                </div>
-              )
-            );
-          })}
-        </div>
-        <AiOutlineArrowRight
-          className={styles.handleNext}
-          onClick={handleNext} />
-      </div>
+        {images2.map((ti, index) => {
+          return (
+            index === arrIndex && (
+              <div>
+                {ti.image}
+                <button><AiOutlineShoppingCart
+                  className={styles.shoppingCart} />{ti.name}</button>
+              </div>
+            )
+          );
+        })}
 
-      <div
-        className={styles.carouselThree}>
-        < AiOutlineArrowLeft
-          className={styles.handleprev}
-          onClick={handlePrev} />
+        {images3.map((ti, index) => {
+          return (
+            index === arrIndex && (
+              <div>
+                {ti.image}
+                <button><AiOutlineShoppingCart
+                  className={styles.shoppingCart} />{ti.name}</button>
+              </div>
+            )
+          );
+        })}
 
-        <div className={styles.carouselSlide}>
-          {images.map((ti, index) => {
-            return (
-              index === arrIndex && (
-                <div>
-                  <div className={styles.laptop}>
-                    <span>{ti.image}</span>
-                  </div>
-                  <button><AiOutlineShoppingCart 
-                    className={styles.shoppingCart} /> {ti.name}</button>
-                </div>
-              )
-            );
-          })}
-        </div>
+        {images3.map((ti, index) => {
+          return (
+            index === arrIndex && (
+              <div>
+                {ti.image}
+                <button><AiOutlineShoppingCart
+                  className={styles.shoppingCart} />{ti.name}</button>
+              </div>
+            )
+          );
+        })}
+
+        {images3.map((ti, index) => {
+          return (
+            index === arrIndex && (
+              <div>
+                {ti.image}
+                <button><AiOutlineShoppingCart
+                  className={styles.shoppingCart} />{ti.name}</button>
+              </div>
+            )
+          );
+        })};
+
         <AiOutlineArrowRight
           className={styles.handleNext}
           onClick={handleNext} />

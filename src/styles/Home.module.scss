@@ -11,15 +11,13 @@ $admin-nav-width: 20px;
 
 .container {
   display: grid;
-  width: 100%;
-
   grid-template-rows:
     $admin-topnav-height
     $admin-header-height
     $admin-main-height
     $admin-footer-height
     $admin-bfooter-height;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 60px 1fr;
   grid-template-areas:
     "topnav topnav"
     "header header"
@@ -32,9 +30,15 @@ $admin-nav-width: 20px;
   grid-area: main;
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    "a b c";
-  align-items: center;
+    "a"
+    "b";
+
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
