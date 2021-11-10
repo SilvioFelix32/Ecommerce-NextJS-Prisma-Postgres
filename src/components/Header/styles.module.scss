@@ -38,20 +38,6 @@
     background: var(--white);
   }
 
-  .searchIcon {
-    cursor: pointer;
-    height: 2rem;
-    width: 2rem;
-    color: var(--gray-800);
-
-    transition: filter 0.2s;
-
-    &:hover {
-      filter: brightness(0.8);
-      color: var(--black)
-    }
-  }
-
   input {
     display: flex;
     align-items: center;
@@ -68,6 +54,21 @@
       font-weight: 300;
     }
   }
+  
+  .searchIcon {
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+    color: var(--gray-800);
+
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.8);
+      color: var(--black)
+    }
+  }
+
 
   .sideBar {
     button {

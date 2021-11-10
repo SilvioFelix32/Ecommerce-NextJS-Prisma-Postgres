@@ -5,7 +5,7 @@ import { TopNav } from "../components/TopNav/TopNav";
 import { TestiSlider } from "../components/TestiSlider/TestiSlider";
 
 import styles from "../styles/home.module.scss";
-import Footer from '../components/Footer/Footer';
+import Footer from '../components/Footer';
 import BottomFooter from '../components/BottomFooter';
 
 export default function Home() {

@@ -22,7 +22,7 @@ export const Modal = ({ isOpen, setIsOpen }: ModalProps) => {
             <div className={styles.modalContext}>
                 <h2>Entre com sua conta</h2> <br />
                 <p>Email</p>
-                <input placeholder="Digite Seu email" /> <br />
+                <input placeholder="Digite seu email" /> <br />
                 <div className="passwordLine">
                     <p>Senha<a>Esqueceu sua Senha?</a></p>
                 </div>

@@ -1,5 +1,5 @@
 import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+import Footer from "../components/Footer";
 import Card5 from "../components/Card/Card5";
 import { Menu } from "@headlessui/react";
 import { useCallback, useEffect, useState } from "react";

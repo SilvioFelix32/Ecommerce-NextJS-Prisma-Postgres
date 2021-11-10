@@ -1,13 +1,13 @@
 .footerHead {
-  display: flex;
   align-items: center;
   justify-content:flex-start ;
   margin-bottom: 0.2rem;
+  font-weight: bold;
 }
 
 .column {
-  display: block;
   grid-area: footer;
+  display: block;
   text-align: center;  
   align-items: center;
 }
@@ -21,14 +21,15 @@
   display: flex;
   justify-content:space-between;
   background-color: var(--blue);
-
+  
   div {
     margin-right: 1rem;
     margin-left: 1rem;
     margin-bottom: 1rem;
     padding: 0.1rem;
-
+    
     a {
+      margin: 1rem 1rem 1rem 1rem;
       color: var(--white);
       transition: filter 0.2s;
   

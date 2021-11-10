@@ -47,29 +47,81 @@ export function Carousel() {
     return () => clearInterval(interval);
   }, [handleNext]);
   return (
-    <div
-      className={styles.carousel}>
-      < AiOutlineArrowLeft
-        className={styles.handleprev}
-        onClick={handlePrev} />
+    <>
+      <div
+        className={styles.carousel}>
+        < AiOutlineArrowLeft
+          className={styles.handleprev}
+          onClick={handlePrev}/> 
 
-      <div className="carouselslide">
-        {images.map((ti, index) => {
-          return (
-            index === arrIndex && (
-              <div>
-                <div className="notebook">
-                  <span>{ti.image}</span>
+        <div className={styles.carouselSlide}>
+          {images.map((ti, index) => {
+            return (
+              index === arrIndex && (
+                <div>
+                  <div className={styles.laptop}>
+                    <span>{ti.image}</span>
+                  </div>
+                  <span>{ti.name}</span>
                 </div>
-                <span>{ti.name}</span>
-              </div>
-            )
-          );
-        })}
+              )
+            );
+          })}
+        </div>
+        <AiOutlineArrowRight
+          className={styles.handleNext}
+          onClick={handleNext} />
       </div>
-      <AiOutlineArrowRight
-        className={styles.handlenext}
-        onClick={handleNext} />
-    </div>
+
+      <div
+        className={styles.carouselTwo}>
+        < AiOutlineArrowLeft
+          className={styles.handleprev}
+          onClick={handlePrev} />
+
+        <div className={styles.carouselSlide}>
+          {images.map((ti, index) => {
+            return (
+              index === arrIndex && (
+                <div>
+                  <div className={styles.laptop}>
+                    <span>{ti.image}</span>
+                  </div>
+                  <span>{ti.name}</span>
+                </div>
+              )
+            );
+          })}
+        </div>
+        <AiOutlineArrowRight
+          className={styles.handleNext}
+          onClick={handleNext} />
+      </div>
+
+      <div
+        className={styles.carouselThree}>
+        < AiOutlineArrowLeft
+          className={styles.handleprev}
+          onClick={handlePrev} />
+
+        <div className={styles.carouselSlide}>
+          {images.map((ti, index) => {
+            return (
+              index === arrIndex && (
+                <div>
+                  <div className={styles.laptop}>
+                    <span>{ti.image}</span>
+                  </div>
+                  <span>{ti.name}</span>
+                </div>
+              )
+            );
+          })}
+        </div>
+        <AiOutlineArrowRight
+          className={styles.handleNext}
+          onClick={handleNext} />
+      </div>
+    </>
   );
 };
