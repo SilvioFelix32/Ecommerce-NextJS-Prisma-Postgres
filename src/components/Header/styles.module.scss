@@ -19,6 +19,8 @@
     height: 100%;
 
     img {
+      margin-left: 0;
+      padding-left: 0;
       cursor: pointer;
       align-items: center;
       height: 100%;
@@ -31,9 +33,9 @@
     justify-content: space-between;
     padding-right: 1.5rem;
 
-    margin-left: 8rem;
+    margin-left: 10rem;
     height: 2.5rem;
-    width: 28rem;
+    width: 30rem;
     border-radius: 1rem;
     background: var(--white);
   }
@@ -66,40 +68,6 @@
     &:hover {
       filter: brightness(0.8);
       color: var(--black)
-    }
-  }
-
-
-  .sideBar {
-    button {
-      height: 80%;
-      width: 64px;
-      max-width: 64px;
-      background: var(--blue);
-      border: 0;
-      outline: none;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      color: var(--white);
-      font-weight: bold;
-
-      transition: filter 0.2s;
-
-      &:hover {
-        filter: brightness(0.8);
-      }
-
-      svg {
-        height: 50%;
-        width: 50%;
-      }
     }
   }
 }

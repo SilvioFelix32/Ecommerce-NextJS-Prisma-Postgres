@@ -2,28 +2,33 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
+import styles from "./styles/404.module.scss"
+
 const Custom404 = () => (
   <>
+  <div className={styles.pageContent}>
     <Head>
       <title>Página não encontrada!</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      
+      <link rel="shortcut icon" href="/favicon.jpg" />
+      <title>SfTech</title>
     </Head>
-    <div className="flex flex-col h-screen justify-center items-center">
-      <h1 className="text-2xl">Oops! Página não encontrada!</h1>
-      <Image
+    <div>
+      <h1>Oops! Página não encontrada!</h1>
+      <Image className={styles.image}
         src="/404.svg"
-        alt="404 Page Not Found"
+        alt="404 Page não Encontrada"
         width={400}
         height={300}
       />
-      <span className="text-gray400">
-        Voltar Para{" "}
+      <span className="">
+        Voltar Para o{" "}
         <Link href="/#">
-          <a className="underline font-bold hover:text-gray500">Inicio</a>
+          <a className="">Inicio</a>
         </Link>
         ?
       </span>
+    </div>
     </div>
   </>
 );

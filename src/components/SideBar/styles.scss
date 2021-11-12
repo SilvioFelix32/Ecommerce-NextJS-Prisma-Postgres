@@ -1,4 +1,28 @@
-.pro-sidebar > .pro-sidebar-inner {
-    background: blue !important;
-}
-
+.pro-sidebar.collapsed {
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+  }
+  
+  .pro-sidebar > .pro-sidebar-inner {
+    background: var(--blue) !important;
+  }
+  
+  .pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
+    background: var(--blue) !important;
+  }
+  
+  .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item > .pro-icon-wrapper {
+    background: var(--blue) !important;
+  }
+  
+  .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item > .pro-icon-wrapper .pro-icon {
+    background: var(--blue) !important;
+  }
+  
+  .pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout .pro-sidebar-footer {
+    margin-top: auto;
+  }
+  

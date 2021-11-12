@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import Link from 'next/link'
 import styles from "./styles.module.scss";
 import { SignInButton } from "../SignInButton";
-import SideBar from "../SideBar";
 
-import { Modal } from '../Modal'
-import { FaBars } from "react-icons/fa";
+import { LoginForm } from '../LoginForm'
 import 'react-pro-sidebar/dist/css/styles.css';
 import { BsSearch } from 'react-icons/bs';
 
@@ -17,18 +15,6 @@ export function Header() {
     <>
       <header className={styles.headerContainer}>
         <div className={styles.headerContent}>
-          <div
-            className={styles.sideBar}
-          >
-            <button
-              type="button"
-              onClick={() => {
-                setIsCollapsed(prev => !prev)
-              }}
-            >
-              <FaBars color="#fff" />
-            </button>
-          </div>
           <nav>
             <Link href="/#">
               <img src="/Logo-SFTech.png" alt="logo" />
@@ -51,8 +37,7 @@ export function Header() {
           />
         </div>
       </header>
-      <SideBar isCollapsed={isCollapsed} />
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <LoginForm isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 }

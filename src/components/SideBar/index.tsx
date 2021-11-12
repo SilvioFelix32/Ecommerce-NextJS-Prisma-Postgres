@@ -5,10 +5,10 @@ import { FiHelpCircle, FiLogIn } from 'react-icons/fi';
 import { RiContactsLine } from 'react-icons/ri';
 import { ImWhatsapp, ImPriceTag, ImFacebook, ImMail4 } from "react-icons/im";
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarFooter } from 'react-pro-sidebar';
-
 interface SideBarProps {
     isCollapsed: boolean
 }
+
 
 export default function SideBar({ isCollapsed }: SideBarProps) {
     return (
@@ -16,9 +16,19 @@ export default function SideBar({ isCollapsed }: SideBarProps) {
             collapsed={isCollapsed}
         >
             <Menu iconShape="square">
-                <MenuItem icon={<BsCartX />}>Meu Carrinho</MenuItem>
+                <MenuItem icon={<BsCartX />}>
+                    <a
+                        href="/shopping-cart">
+                        Carrinho de Compras
+                    </a>
+                </MenuItem>
                 <MenuItem icon={<ImPriceTag />}>Oferta do dia</MenuItem>
-                <MenuItem icon={<FaHeart />}>Favoritos</MenuItem>
+                <MenuItem icon={<FaHeart />}>
+                    <a
+                        href="/wishlist">
+                        Favoritos
+                    </a>
+                </MenuItem>
                 <SubMenu title="Contate-nos" icon={<RiContactsLine />}>
                     <MenuItem icon={<ImWhatsapp />}>Whatsapp</MenuItem>
                     <MenuItem icon={<ImFacebook />}>Facebook</MenuItem>

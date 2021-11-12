@@ -1,8 +1,11 @@
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer";
+import React, { useEffect, useState } from "react";
+
+import { Header } from "../components/Header";
+import { TopNav } from "../components/TopNav/TopNav";
+import { Footer } from "../components/Footer";
+import BottomFooter from "../components/BottomFooter";
+
 import Card5 from "../components/Card/Card5";
-import { Menu } from "@headlessui/react";
-import { useCallback, useEffect, useState } from "react";
 import Pagination from "../components/Util/Pagination";
 import Items from "../components/Util/Items";
 import useWindowSize from "../components/Util/useWindowSize";
@@ -42,26 +45,27 @@ const CardContainer = () => {
 
   return (
     <div>
+      <TopNav />
       <Header />
-      <div className="px-20 bg-lightgreen h-16 w-full flex items-center">
-        <div className="breadcrumb">
-          <a href="#" className="text-gray400">
+      <div className="">
+        <div>
+          <a href="#">
             Inicio
           </a>{" "}
           / <span>Homem</span>
         </div>
       </div>
-      <div className="px-20 w-full mt-8">
-        <h3 className="text-4xl mb-2 animate__animated animate__bounce">Men</h3>
-        <div className="flex justify-between mt-6">
+      <div>
+        <h3>Men</h3>
+        <div>
           <span>
             Visualisando {firstIndexPost + 1} ~ {lastIndexPost} of {totalPosts}
           </span>
           <span>Filtrar por: Preço</span>
         </div>
       </div>
-      <div className="px-16 mb-14">
-        <div className="flex flex-wrap mb-8">
+      <div>
+        <div>
           {currentPosts.map((item) => (
             <Card5
               key={item.name}
@@ -82,6 +86,7 @@ const CardContainer = () => {
         />
       </div>
       <Footer />
+      <BottomFooter />
     </div>
   );
 };

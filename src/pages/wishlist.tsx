@@ -1,23 +1,21 @@
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer";
-import Card5 from "../components/Card/Card5";
-import { Menu } from "@headlessui/react";
-import { useCallback, useContext, useEffect, useState } from "react";
-import Pagination from "../components/Util/Pagination";
-import Items from "../components/Util/Items";
-import useWindowSize from "../components/Util/useWindowSize";
+import React, { useContext, useState } from "react";
+
+import { Header } from "../components/Header";
+import { TopNav } from "../components/TopNav/TopNav";
+import { Footer } from "../components/Footer";
+
+import BottomFooter from "../components/BottomFooter";
 import Link from "next/link";
-import LeftArrow from "../public/icons/LeftArrow";
-import Button from "../components/Buttons/Button";
-import CartContext from "../context/cart/CartContext";
-import WishlistContext from "../context/wishlist/WishlistContext";
-import GhostButton from "../components/Buttons/GhostButton";
-import TextButton from "../components/Buttons/TextButton";
+import WishlistContext from "../../context/wishlist/WishlistContext";
+import CartContext from "../../context/cart/CartContext";
+
+import styles from "./styles/WishList.module.scss"
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 // let w = window.innerWidth;
 
-const Wishlist = () => {
-  const [deli, setDeli] = useState("Yangon");
+export function Wishlist() {
+  const [deli, setDeli] = useState("Piúma");
   const { cart, addOne, removeItem, deleteItem, clearCart } =
     useContext(CartContext);
   const { wishlist, addToWishlist, deleteWishlistItem, clearWishlist } =
@@ -26,92 +24,86 @@ const Wishlist = () => {
   let subtotal = 0;
 
   return (
-    <div>
+    <div className={styles.wishlistContent}>
+      <TopNav />
       <Header />
-      <div className="px-6 md:px-20 w-full border-t-2 border-gray100">
-        <h1 className="text-2xl sm:text-4xl text-center sm:text-left mt-6 mb-2 animatee__animated animate__bounce">
+      <div>
+        <h1>
           Lista de Desejos
         </h1>
-        <div className="mt-6 mb-3">
+        <div>
           <Link href="/">
-            <a className="inline-block">
-              <LeftArrow size="sm" extraClass="inline-block" /> Continuar Comprando
+            <a>
+              <AiOutlineArrowLeft /> Continuar Comprando
             </a>
           </Link>
         </div>
       </div>
-      <div className="px-6 md:px-20 mb-14 flex flex-col lg:flex-row">
-        <div className="h-full w-full">
-          <table className="w-full mb-6">
+      <div>
+        <div>
+          <table>
             <thead>
-              <tr className="border-t-2 border-b-2 border-gray200">
-                <th className="font-normal hidden md:table-cell text-left sm:text-center py-2 xl:w-72">
+              <tr>
+                <th>
                   Imagem do Produto
                 </th>
-                <th className="font-normal hidden md:table-cell text-left sm:text-center py-2 xl:w-72">
+                <th>
                   Preço do Produto
                 </th>
-                <th className="font-normal md:hidden text-left sm:text-center py-2 xl:w-72">
+                <th>
                   Detalhes do Produto
                 </th>
                 <th
-                  className={`font-normal py-2 ${
-                    wishlist.length === 0 ? "text-center" : "text-right"
-                  }`}
+                  className={`font-normal py-2 ${wishlist.length === 0 ? "text-center" : "text-right"
+                    }`}
                 >
                   Valor por Unidade
                 </th>
-                <th className="font-normal hidden sm:table-cell py-2 max-w-xs">
+                <th>
                   Adicionar
                 </th>
-                <th className="font-normal hidden sm:table-cell py-2 text-right w-10">
+                <th>
                   Remover
                 </th>
-                <th className="font-normal sm:hidden py-2 text-right w-10">
+                <th>
                   Ações
                 </th>
               </tr>
             </thead>
             <tbody>
               {wishlist.length === 0 ? (
-                <tr className="w-full text-center h-60 border-b-2 border-gray200">
+                <tr>
                   <td colSpan={5}>Lista de Desejos Vazia!</td>
                 </tr>
               ) : (
                 wishlist.map((item) => {
                   subtotal += item.price * item.qty;
                   return (
-                    <tr className="border-b-2 border-gray200" key={item.id}>
-                      <td className="my-3 flex justify-center flex-col items-start sm:items-center">
-                        <img src={item.img1} alt="" className="h-32 xl:mr-4" />
-                        <span className="md:hidden">{item.name}</span>
+                    <tr key={item.id}>
+                      <td>
+                        <img src={item.img1} />
+                        <span>{item.name}</span>
                       </td>
-                      <td className="text-center hidden md:table-cell">
+                      <td>
                         {item.name}
                       </td>
-                      <td className="text-right text-gray400">
+                      <td>
                         $ {item.price}
                       </td>
-                      <td className="text-center hidden sm:table-cell max-w-xs text-gray400">
-                        <Button
-                          value="Add to cart"
-                          extraClass="hidden sm:block m-auto"
+                      <td>
+                        <button
+                          value="Adicionar ao Carrinho"
                           onClick={() => addOne(item)}
                         />
                       </td>
-                      <td
-                        className="text-right pl-8"
-                        style={{ minWidth: "3rem" }}
-                      >
-                        <Button
+                      <td>
+                        <button
                           value="Add"
                           onClick={() => addOne(item)}
-                          extraClass="sm:hidden mb-4"
                         />
                         <button
                           onClick={() => deleteWishlistItem(item)}
                           type="button"
-                          className="outline-none text-gray300 hover:text-gray500 focus:outline-none text-4xl sm:text-2xl"
                         >
                           &#10005;
                         </button>
@@ -123,17 +115,15 @@ const Wishlist = () => {
             </tbody>
           </table>
           <div>
-            <GhostButton
+            <button
               onClick={clearWishlist}
-              extraClass="hidden sm:inline-block"
               value="Limpar Lista de Desejos"
-              size="lg"
             />
-            {/* <TextButton value="Clear Cart" /> */}
           </div>
         </div>
       </div>
       <Footer />
+      <BottomFooter />
     </div>
   );
 };

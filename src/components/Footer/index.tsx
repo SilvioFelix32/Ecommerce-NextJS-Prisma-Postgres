@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./styles.module.scss";
 
-export default function Footer() {
+export function Footer() { 
   return (
     <>
       <div className={styles.footerContainer}>
@@ -25,9 +25,9 @@ export default function Footer() {
         <div>
           <h4 className={styles.footerHead}>Loja</h4>
           <div className={styles.column}>
-            <a href="example">Homem</a><br/>
-            <a href="example">Mulher</a><br/>
-            <a href="example">Bolsas</a><br/>
+            <a href="example">Navegação</a><br/>
+            <a href="example">Navegação</a><br/>
+            <a href="example">Navegação</a><br/>
           </div>
         </div>
         <div>

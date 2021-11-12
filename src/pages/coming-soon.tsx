@@ -2,32 +2,35 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
+import styles from "./Styles/CommingSoon.module.scss"
+
 const ComingSoon = () => (
-  <>
+  <div className={styles.pageContent}>
     <Head>
       <title>Em breve!</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    {/*   <meta name="viewport" content="initial-scale=1.0, width=device-width" /> */}
+      <link rel="shortcut icon" href="/favicon.jpg" />
     </Head>
-    <div className="flex flex-col h-screen justify-center items-center">
-      <h1 className="text-3xl tracking-wider">Coming Soon!</h1>
-      <h2 className="text-2xl text-gray500">
-        Página em Desenvolvimento!
+    <div>
+      <h1>Em Breve!</h1>
+      <h2>
+        Esta página está em desenvolvimento!
       </h2>
       <Image
-        src="/bg-img/coding.svg"
-        alt="Not created yet"
+        src="/coding.svg"
+        alt="Em Desenvolvimento"
         width={400}
         height={300}
       />
-      <span className="text-gray400">
-        Voltar Para{" "}
-        <Link href="/">
-          <a className="underline font-bold hover:text-gray500">Inicio</a>
+      <span>
+        Voltar Para o{" "}
+        <Link href="/#">
+          <a>Inicio</a>
         </Link>
         ?
       </span>
     </div>
-  </>
+  </div>
 );
 
 export default ComingSoon;
