@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@types/next-auth": "^3.15.0",
-    "js-cookie": "^3.0.1",
     "next": "12.0.3",
     "next-auth": "^3.29.0",
     "react": "17.0.2",
@@ -19,8 +18,7 @@
     "react-responsive-modal": "^6.1.0",
     "react-router-dom": "^6.0.1",
     "react-simply-carousel": "^5.1.4",
-    "sass": "^1.43.4",
-    "stripe": "^8.186.1"
+    "sass": "^1.43.4"
   },
   "devDependencies": {
     "@types/node": "16.11.6",
