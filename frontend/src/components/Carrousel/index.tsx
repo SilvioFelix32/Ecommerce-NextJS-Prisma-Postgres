@@ -157,7 +157,7 @@ export function Carousel() {
           onClick={handleNext} />
       </div>
 
-      <div
+     {/*  <div
         className={styles.carouselTwo}>
         < AiOutlineArrowLeft
           className={styles.handleprev}
@@ -222,10 +222,11 @@ export function Carousel() {
           );
         })};
 
+      </div> */}
+
         <AiOutlineArrowRight
           className={styles.handleNext}
           onClick={handleNext} />
-      </div>
     </>
   );
 };

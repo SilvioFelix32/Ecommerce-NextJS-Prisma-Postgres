@@ -10,6 +10,7 @@ $admin-nav-width: 20px;
 // Main Layout Grid
 
 .container {
+  height: 100vh;
   display: grid;
   grid-template-rows:
     $admin-topnav-height
@@ -30,7 +31,6 @@ $admin-nav-width: 20px;
   grid-area: main;
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     "a"
