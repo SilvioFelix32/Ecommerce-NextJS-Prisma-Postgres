@@ -6,7 +6,6 @@ import {
 }
   from "react-icons/ai";
 import Image from 'next/image';
-import Link from "next/link";
 
 import styles from "./styles.module.scss";
 
@@ -90,9 +89,9 @@ export function Carousel() {
       <div
         className={styles.carousel}>
         {images.map((ti, index) => {
-        < AiOutlineArrowLeft
-          className={styles.handleprev}
-          onClick={handlePrev} />
+          < AiOutlineArrowLeft
+            className={styles.handleprev}
+            onClick={handlePrev} />
           return (
             index === arrIndex && (
               <div>
@@ -156,77 +155,9 @@ export function Carousel() {
           className={styles.handleNext}
           onClick={handleNext} />
       </div>
-
-     {/*  <div
-        className={styles.carouselTwo}>
-        < AiOutlineArrowLeft
-          className={styles.handleprev}
-          onClick={handlePrev} />
-        {images.map((ti, index) => {
-          return (
-            index === arrIndex && (
-              <div>
-                {ti.image}
-                <button><AiOutlineShoppingCart
-                  className={styles.shoppingCart} />{ti.name}</button>
-              </div>
-            )
-          );
-        })}
-
-        {images2.map((ti, index) => {
-          return (
-            index === arrIndex && (
-              <div>
-                {ti.image}
-                <button><AiOutlineShoppingCart
-                  className={styles.shoppingCart} />{ti.name}</button>
-              </div>
-            )
-          );
-        })}
-
-        {images3.map((ti, index) => {
-          return (
-            index === arrIndex && (
-              <div>
-                {ti.image}
-                <button><AiOutlineShoppingCart
-                  className={styles.shoppingCart} />{ti.name}</button>
-              </div>
-            )
-          );
-        })}
-
-        {images3.map((ti, index) => {
-          return (
-            index === arrIndex && (
-              <div>
-                {ti.image}
-                <button><AiOutlineShoppingCart
-                  className={styles.shoppingCart} />{ti.name}</button>
-              </div>
-            )
-          );
-        })}
-
-        {images3.map((ti, index) => {
-          return (
-            index === arrIndex && (
-              <div>
-                {ti.image}
-                <button><AiOutlineShoppingCart
-                  className={styles.shoppingCart} />{ti.name}</button>
-              </div>
-            )
-          );
-        })};
-
-      </div> */}
-
-        <AiOutlineArrowRight
-          className={styles.handleNext}
-          onClick={handleNext} />
+      <AiOutlineArrowRight
+        className={styles.handleNext}
+        onClick={handleNext} />
     </>
   );
 };

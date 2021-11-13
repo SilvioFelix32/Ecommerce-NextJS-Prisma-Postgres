@@ -1,11 +1,9 @@
+import React from 'react';
+import { baseApiUrl, userKey } from '../../global'
+import Link from "next/link";
 import { Modal as ModalComponent } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
-
-import Image from 'next/image';
-import Link from "next/link";
-
 import styles from "./styles.module.scss";
-import React from 'react';
 
 interface ModalProps {
     isOpen: boolean

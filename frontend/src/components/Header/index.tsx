@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import Link from 'next/link'
-import styles from "./styles.module.scss";
 import { SignInButton } from "../SignInButton";
-
-import { LoginForm } from '../LoginForm'
-import 'react-pro-sidebar/dist/css/styles.css';
 import { BsSearch } from 'react-icons/bs';
+import { LoginForm } from '../LoginForm'
+import Link from 'next/link'
+
+import styles from "./styles.module.scss";
+import 'react-pro-sidebar/dist/css/styles.css';
 
 export function Header() {
-  const [isCollapsed, setIsCollapsed] = useState(true)
   const [isOpen, setIsOpen] = useState(false);
 
   return (
