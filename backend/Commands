@@ -1,0 +1,14 @@
+//# launch the PostgreSQL database serve
+docker-compose up -d
+
+//# SO YOU CAN SEE IF THE SERVER IS RUNING ON POSTGRESS
+docker ps
+
+//# CREATE MIGRATIONS
+npx prisma migrate dev --name "init"
+
+//# START PRISMA ON PORT 5556
+npx prisma studio
+
+/# START INDEX.TS IN PORT 3003
+yarn start
