@@ -10,14 +10,14 @@ interface ModalProps {
     setIsOpen: (value: boolean) => void
 }
 
-export default function LoginForm({ isOpen, setIsOpen }: ModalProps) {
+export function LoginForm({ isOpen, setIsOpen }: ModalProps) {
     const onCloseModal = () => setIsOpen(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const { signIn } = useContext(AuthContext)
 
-    async function handleSubmit(event: FormEvent) {
+    function handleSubmit(event: FormEvent) {
         event.preventDefault();
 
         const data = {
@@ -25,8 +25,9 @@ export default function LoginForm({ isOpen, setIsOpen }: ModalProps) {
             password,
         }
 
-        await signIn(data);
+        signIn(data);
     }
+
     return (
         <ModalComponent
             classNames={{

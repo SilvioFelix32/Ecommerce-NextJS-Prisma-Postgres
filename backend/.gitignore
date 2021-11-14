@@ -17,7 +17,8 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
-docker-compose.yml
+index copy from backend
+.index copy from backend
 
 # typescript
 *.tsbuildinfo
