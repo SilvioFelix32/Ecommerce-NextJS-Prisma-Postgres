@@ -1,10 +1,14 @@
 import { PrismaClient } from '@prisma/client';
-import { User } from '@prisma/client';
+import { RefreshTokensStore, UsersStore } from "./types";
+import { v4 as uuid } from 'uuid';
+
+export const users: UsersStore = new Map()
+export const tokens: RefreshTokensStore = new Map()
 
 const prisma = new PrismaClient({})
 
 // A main function so that you can use async/await
-async function main() {
+export async function main() {
     // Create user
     const createUser = await prisma.user.create({
         data: {
@@ -22,9 +26,31 @@ async function main() {
             id: createUser.id,
         },
     })
-
     console.log(allUsers)
 }
+
+export function createRefreshToken(email: string) {
+    const currentUserTokens = tokens.get(email) ?? []
+    const refreshToken = uuid()
+  
+    tokens.set(email, [...currentUserTokens, refreshToken])
+  
+    return refreshToken;
+  }
+  
+  export function checkRefreshTokenIsValid(email: string, refreshToken: string) {
+    const storedRefreshTokens = tokens.get(email) ?? []
+  
+    return storedRefreshTokens.some(token => token === refreshToken)
+  }
+  
+  export function invalidateRefreshToken(email: string, refreshToken: string) {
+    const storedRefreshTokens = tokens.get(email) ?? []
+  
+    tokens.set(email, storedRefreshTokens.filter(token => token !== refreshToken));
+  }
+
+
 
 main()
     .catch((e) => {

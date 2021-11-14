@@ -1,7 +1,7 @@
-import React from 'react';
-import { baseApiUrl, userKey } from '../../global'
-import Link from "next/link";
+import React, { FormEvent, useContext, useState } from 'react';
+import { AuthContext } from '../../../context/AuthContext';
 import { Modal as ModalComponent } from 'react-responsive-modal';
+import Link from "next/link";
 import 'react-responsive-modal/styles.css';
 import styles from "./styles.module.scss";
 
@@ -10,9 +10,23 @@ interface ModalProps {
     setIsOpen: (value: boolean) => void
 }
 
-export const LoginForm = ({ isOpen, setIsOpen }: ModalProps) => {
+export default function LoginForm({ isOpen, setIsOpen }: ModalProps) {
     const onCloseModal = () => setIsOpen(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
+    const { signIn } = useContext(AuthContext)
+
+    async function handleSubmit(event: FormEvent) {
+        event.preventDefault();
+
+        const data = {
+            email,
+            password,
+        }
+
+        await signIn(data);
+    }
     return (
         <ModalComponent
             classNames={{
@@ -22,15 +36,15 @@ export const LoginForm = ({ isOpen, setIsOpen }: ModalProps) => {
             open={isOpen}
             onClose={onCloseModal}
             center>
-            <div className={styles.modalContext}>
+            <form onSubmit={handleSubmit} className={styles.modalContext}>
                 <h2>Entre com sua conta</h2> <br />
                 <p>Email</p>
-                <input placeholder="Digite seu email" /> <br />
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)} /> <br />
                 <div className="passwordLine">
                     <p>Senha<a href="/coming-soon">Esqueceu sua Senha?</a></p>
                 </div>
                 <input
-                    placeholder="Digite a sua Senha" />
+                    type="password" value={password} onChange={e => setPassword(e.target.value)} />
                 <div
                     className={styles.checkbox}>
                     <input
@@ -41,14 +55,14 @@ export const LoginForm = ({ isOpen, setIsOpen }: ModalProps) => {
                     />
                     <label htmlFor="remember">Salvar Senha?</label>
                 </div>
-            </div>
-            <div className={styles.textFooter}>
                 <button
-                    /* onClick="location.href='404.svg';" */
+                    type="submit"
                     className={styles.signInButton}
                 >Entrar</button>
                 <p>Não tem uma conta? <Link href="/coming-soon">Cadastrar</Link>.</p>
-            </div>
+            </form>
+            {/*  <div className={styles.textFooter}>
+            </div> */}
         </ModalComponent>
     );
 };

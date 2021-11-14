@@ -1,46 +1,92 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from 'react'
+import { setCookie, parseCookies, destroyCookie } from 'nookies';
+import Router from 'next/router'
+import { api } from '../services/api';
 
-type authContextType = {
-  user: boolean;
-  login: () => void;
-  logout: () => void;
+type User = {
+    email: string;
+    permissions: string[];
+    roles: string[];
+}
+
+type signInCredentials = {
+    email: string;
+    password: string;
+}
+
+type AuthContextData = {
+    signIn(credentials: signInCredentials): Promise<void>;
+    user: User;
+    isAuthenticated: boolean;
 };
 
-const authContextDefaultValues: authContextType = {
-  user: null,
-  login: () => {},
-  logout: () => {},
-};
+type AuthProviderProps = {
+    children: ReactNode;
+}
 
-const AuthContext = createContext<authContextType>(authContextDefaultValues);
+export const AuthContext = createContext({} as AuthContextData)
 
-// export function useAuth() {
-//   return useContext(AuthContext);
-// }
+export function signOut() {
+    destroyCookie(undefined, 'nextauth.token')
+    destroyCookie(undefined, 'nextauth.refreshToken')
 
-type Props = {
-  children: ReactNode;
-};
+    Router.push('/')
+}
 
-export function AuthProvider({ children }: Props) {
-  const [user, setUser] = useState<boolean>(null);
+export function AuthProvider({ children }: AuthProviderProps) {
+    const [user, setUser] = useState<User>();
+    const isAuthenticated = !!user;
 
-  const login = () => {
-    setUser(true);
-  };
+    useEffect(() => {
+        const { 'nextauth.token': token } = parseCookies()
 
-  const logout = () => {
-    setUser(false);
-  };
+        if (token) {
+            api.get('/user').then(response => {
+                const { email, permissions, roles } = response.data
 
-  const value = {
-    user,
-    login,
-    logout,
-  };
-  return (
-    <>
-      <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
-    </>
-  );
+                setUser({ email, permissions, roles })
+            }).catch(() => {
+                signOut();
+            })
+        }
+    }, [])
+
+    async function signIn({ email, password }: signInCredentials) {
+        try {
+            const response = await api.post('user', {
+                email,
+                password
+            })
+
+            const { token, refreshToken, permissions, roles } = response.data;
+
+            //using nookies to create the nextJS cookies  
+            setCookie(undefined, 'nextauth.token', token, {
+                maxAge: 60 * 60 * 24 * 30, //this set the time tha the cookie will be stored = 30 days
+                path: '/' //any adres you have acces to this cookie, this means that this is a global cookie
+            })
+            setCookie(undefined, 'nextauth.refreshToken', refreshToken, {
+                maxAge: 60 * 60 * 24 * 30, //this set the time tha the cookie will be stored = 30 days
+                path: '/' //any adres you have acces to this cookie, this means that this is a global cookie
+            })
+
+            setUser({
+                email,
+                permissions,
+                roles,
+            })
+
+            api.defaults.headers['Authorization'] = `Bearer ${token}`
+
+            Router.push('/wishlist');
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    return (
+        <AuthContext.Provider value={{ signIn, isAuthenticated, user }}>
+            {children}
+        </AuthContext.Provider>
+    )
 }
