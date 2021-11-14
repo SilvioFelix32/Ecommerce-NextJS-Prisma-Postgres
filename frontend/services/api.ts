@@ -8,7 +8,7 @@ let failedRequestsQueue = [];
 
 //this part execute on user logged in
 export const api = axios.create({
-    baseURL: 'http://localhost:5555',
+    baseURL: 'http://localhost:3003',
     headers: {
         Authorization: `Bearer ${cookies['nextauth.token']}`
     }

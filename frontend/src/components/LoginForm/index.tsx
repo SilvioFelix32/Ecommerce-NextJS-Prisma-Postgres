@@ -17,7 +17,7 @@ export function LoginForm({ isOpen, setIsOpen }: ModalProps) {
 
     const { signIn } = useContext(AuthContext)
 
-    function handleSubmit(event: FormEvent) {
+    async function handleSubmit(event: FormEvent) {
         event.preventDefault();
 
         const data = {
@@ -25,7 +25,7 @@ export function LoginForm({ isOpen, setIsOpen }: ModalProps) {
             password,
         }
 
-        signIn(data);
+        await signIn(data);
     }
 
     return (

@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import { AuthProvider } from "../../context/AuthContext";
 import { AppProps } from "next/app";
 
 import "../styles/globals.scss";
@@ -11,8 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/favicon.jpg" />
         <title>SfTech</title>
       </Head>
-      <Component {...pageProps} />
-     
+      <AuthProvider>
+        <Component {...pageProps} />
+      </AuthProvider>
     </>
   );
 }

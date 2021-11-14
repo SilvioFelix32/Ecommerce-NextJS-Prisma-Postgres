@@ -23,7 +23,7 @@ export const SignInButton: React.FC<ButtonProps> = ({ ...rest }) => {
         <button
             type="button"
             className={styles.signInButton}
-            onClick={() => signIn('github')}
+            onClick={() => signIn('Bem Vindo!')}
             {...rest}
         >
             <FaUserCircle color="#fff" />

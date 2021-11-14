@@ -94,7 +94,7 @@ export function Carousel() {
             onClick={handlePrev} />
           return (
             index === arrIndex && (
-              <div>
+              <div className="1">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>
@@ -106,7 +106,7 @@ export function Carousel() {
         {images2.map((ti, index) => {
           return (
             index === arrIndex && (
-              <div>
+              <div className="2">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>
@@ -118,7 +118,7 @@ export function Carousel() {
         {images3.map((ti, index) => {
           return (
             index === arrIndex && (
-              <div>
+              <div className="3">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>
@@ -130,7 +130,7 @@ export function Carousel() {
         {images3.map((ti, index) => {
           return (
             index === arrIndex && (
-              <div>
+              <div className="4">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>
@@ -142,7 +142,7 @@ export function Carousel() {
         {images3.map((ti, index) => {
           return (
             index === arrIndex && (
-              <div>
+              <div className="5"> 
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>

@@ -78,7 +78,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
             api.defaults.headers['Authorization'] = `Bearer ${token}`
 
-            Router.push('/wishlist');
+            Router.push('/dashboard'); //SELECT THE PAGE YOU WANT TO OPEN NEXT
         } catch (err) {
             console.log(err)
         }

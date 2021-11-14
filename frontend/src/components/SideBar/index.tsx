@@ -37,7 +37,10 @@ export default function SideBar({ isCollapsed }: SideBarProps) {
                 <MenuItem icon={<FiHelpCircle />}>Ajuda?</MenuItem>
 
                 <SidebarFooter>
-                    <MenuItem icon={<FiLogIn />}>ENTRAR</MenuItem>
+                    <MenuItem icon={<FiLogIn />}><a
+                        href="/teste">
+                        Entrar
+                    </a></MenuItem>
                 </SidebarFooter>
             </Menu>
         </ProSidebar>

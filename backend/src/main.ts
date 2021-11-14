@@ -50,8 +50,6 @@ export function createRefreshToken(email: string) {
     tokens.set(email, storedRefreshTokens.filter(token => token !== refreshToken));
   }
 
-
-
 main()
     .catch((e) => {
         throw e

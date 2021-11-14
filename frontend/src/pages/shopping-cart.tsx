@@ -7,7 +7,7 @@ import CartContext from "../../context/cart/CartContext";
 import BottomFooter from "../components/BottomFooter";
 import Link from "next/link";
 
-import styles from "./ShoppingCart..module.scss"
+import styles from './styles/ShoppingCart.module.scss'
 
 // let w = window.innerWidth;
 
@@ -22,100 +22,86 @@ const ShoppingCart = () => {
     <div>
       <TopNav />
       <Header />
-      <div>
+      <div className={styles.pageHead}>
         <h1>
           Carrinho de Compras
         </h1>
-        <div >
-          <Link href="/">
-            <a>
-              Continuar Comprando
-            </a>
-          </Link>
-        </div>
+        <Link href="/#">
+          <a>
+            Continuar Comprando
+          </a>
+        </Link>
       </div>
-      <div>
-        <div>
-          <table>
-            <thead>
+      <div className={styles.cartArea}>
+        <table>
+          <thead>
+            <tr>
+              <th>
+                Detalhes do Produto
+              </th>
+              <th>
+                Preço por Unidade
+              </th>
+              <th>Quantidade</th>
+              <th>Valor</th>
+            </tr>
+          </thead><br />
+          <tbody>
+            {cart.length === 0 ? (
               <tr>
-                <th>
-                  Detalhes do Produto
-                </th>
-                <th
-                  className={`font-normal py-2 hidden sm:block ${cart.length === 0 ? "text-center" : "text-right"
-                    }`}
-                >
-                  Preço por Unidade
-                </th>
-                <th>Quantidade</th>
-                <th>Valor</th>
+                <td colSpan={5}>Carrinho vazio!</td>
               </tr>
-            </thead>
-            <tbody>
-              {cart.length === 0 ? (
-                <tr>
-                  <td colSpan={5}>Carrinho vazio!</td>
-                </tr>
-              ) : (
-                cart.map((item) => {
-                  subtotal += item.price * item.qty;
-                  return (
-                    <tr key={item.id}>
-                      <td>
-                        <Link href={`/products/${encodeURIComponent(item.id)}`}>
-                          <img
-                            src={item.img1}
-                            alt=""
-                            className="h-32 xl:mr-4"
-                          />
-                        </Link>
-                        <span>{item.name}</span>
-                      </td>
-                      <td>
-                        R$ {item.price}
-                      </td>
-                      <td>
-                        <div>
-                          <div
-                            onClick={() => removeItem(item)}>
-                            -
-                          </div>
-                          <div>
-                            {item.qty}
-                          </div>
-                          <div
-                            onClick={() => addOne(item)}
-                          >
-                            +
-                          </div>
+            ) : (
+              cart.map((item) => {
+                subtotal += item.price * item.qty;
+                return (
+                  <tr key={item.id}>
+                    <td>
+                      <Link href={`/products/${encodeURIComponent(item.id)}`}>
+                        <img
+                          src={item.img1}
+                        />
+                      </Link>
+                      <span>{item.name}</span>
+                    </td>
+                    <td>
+                      R$ {item.price}
+                    </td>
+                    <td>
+                      <div>
+                        <div
+                          onClick={() => removeItem(item)}>
+                          -
                         </div>
-                      </td>
-                      <td>
-                        R$ {item.price * item.qty}
-                        <br />
-                        <span>(R$ {item.price})</span>
-                      </td>
-                      <td>
-                        <button
-                          onClick={() => deleteItem(item)}
+                        <div>
+                          {item.qty}
+                        </div>
+                        <div
+                          onClick={() => addOne(item)}
                         >
-                          &#10005;
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })
-              )}
-            </tbody>
-          </table>
-          <div>
-            <button
-              onClick={clearCart}
-              value="Limpar Carrinho" />
-          </div>
-        </div>
-        <div className="cartTotals">
+                          +
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      R$ {item.price * item.qty}
+                      <br />
+                      <span>(R$ {item.price})</span>
+                    </td>
+                    <td>
+                      <button
+                        onClick={() => deleteItem(item)}
+                      >
+                        &#10005;
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
+            )}
+          </tbody>
+        </table>
+        <div className={styles.cartTotals}>
           <div>
             <h2>Valor Total</h2>
             <div>
@@ -146,9 +132,7 @@ const ShoppingCart = () => {
                   <div>
                     <input
                       type="radio"
-                      name="deli"
-                      value="Others"
-                      id="others"
+                      name="delivery"
                       checked={deli === "Others"}
                       onChange={() => setDeli("Others")}
                     />{" "}
@@ -160,13 +144,18 @@ const ShoppingCart = () => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between py-3">
+            <div className="">
               <span>TOTAL</span>
               <span>R$ {subtotal + (deli === "Piúma" ? 0.0 : 7.0)}</span>
             </div>
-            <button value="Finalizar Compra" />
+            <button>Finalizar Compra</button>
           </div>
         </div>
+      </div>
+      <div className={styles.clearCart}>
+        <button
+          onClick={clearCart}>
+          Limpar Carrinho</button>
       </div>
       <Footer />
       <BottomFooter />
