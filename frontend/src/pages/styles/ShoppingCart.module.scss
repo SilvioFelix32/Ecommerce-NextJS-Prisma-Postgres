@@ -24,20 +24,42 @@
 .cartArea {
     display: flex;
     flex-direction: row;
-    width: 100%;
     justify-content: center;
     align-self: flex-start;
 
-    border-color: var(--black);
+    width: 100%;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
+    margin-top: 15px;
 
     table {
-        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: flex-start;
+
+        width: 100%;
+        height: 100%;
         align-items: flex-start;
 
+        thead {
+            height: 2rem;
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            th{
+            
+            }
+        }
+
         tbody {
+            width: 100%;
+            height: 200px;
+
             display: flex;
             justify-content: center;
             align-items: center;
@@ -47,12 +69,125 @@
     .cartTotals {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding-left: 15px;
+        padding-right: 15px;
 
         width: 30%;
         background: var(--gray-100);
         border: var(--blue);
+
+        h2 {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-weight: 300; //area - TOTAL VALUE
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+
+            height: 2.5rem;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 15px;
+
+            font-weight: bold;
+            background: var(--gray-800);
+            color: var(--white);
+
+            transition: filter 0.2s;
+
+            &:hover {
+                background: gray;
+            }
+        }
+
+        div.subtotal {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+
+            margin-top: 5px;
+            margin-bottom: 5px;
+
+            span {
+                margin-left: auto;
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+.deliveryOptions {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.withdrawStore {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    input {
+        width: 20px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        cursor: pointer;
+    }
+
+    span {
+        margin-left: auto;
+        margin-right: 15px;
+    }
+}
+
+.delivery {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    input {
+        width: 20px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        cursor: pointer;
+    }
+
+    span {
+        margin-left: auto;
+        margin-right: 15px;
+    }
+}
+
+.total {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+    span {
+        margin-left: auto;
+        margin-right: 15px;
     }
 }
 
@@ -60,10 +195,26 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 2rem;
+    height: 3rem;
     padding-left: 30px;
 
-    background: var(--gray-100);
     button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 2.5rem;
+        width: 10rem;
+        border: 0;
+        margin-bottom: 1.5rem;
+
+        font-weight: bold;
+        background: var(--gray-800);
+        color: var(--white);
+        transition: filter 0.2s;
+
+        &:hover {
+            background: gray;
+        }
     }
 }

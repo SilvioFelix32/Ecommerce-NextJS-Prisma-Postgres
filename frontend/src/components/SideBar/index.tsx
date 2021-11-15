@@ -5,6 +5,8 @@ import { FiHelpCircle, FiLogIn } from 'react-icons/fi';
 import { RiContactsLine } from 'react-icons/ri';
 import { ImWhatsapp, ImPriceTag, ImFacebook, ImMail4 } from "react-icons/im";
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarFooter } from 'react-pro-sidebar';
+
+import styles from "./styles.module.scss"
 interface SideBarProps {
     isCollapsed: boolean
 }
@@ -13,6 +15,7 @@ interface SideBarProps {
 export default function SideBar({ isCollapsed }: SideBarProps) {
     return (
         <ProSidebar
+            className={styles.proSide}
             collapsed={isCollapsed}
         >
             <Menu iconShape="square">
@@ -29,7 +32,7 @@ export default function SideBar({ isCollapsed }: SideBarProps) {
                         Favoritos
                     </a>
                 </MenuItem>
-              {/*   <SubMenu title="Contate-nos" icon={<RiContactsLine />}>
+                {/*   <SubMenu title="Contate-nos" icon={<RiContactsLine />}>
                     <MenuItem icon={<ImWhatsapp />}>Whatsapp</MenuItem>
                     <MenuItem icon={<ImFacebook />}>Facebook</MenuItem>
                     <MenuItem icon={<ImMail4 />}>Email.com</MenuItem>

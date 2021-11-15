@@ -8,6 +8,7 @@ import BottomFooter from "../components/BottomFooter";
 import Link from "next/link";
 
 import styles from './styles/ShoppingCart.module.scss'
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 // let w = window.innerWidth;
 
@@ -28,7 +29,7 @@ const ShoppingCart = () => {
         </h1>
         <Link href="/#">
           <a>
-            Continuar Comprando
+            <AiOutlineArrowLeft /> Continuar Comprando
           </a>
         </Link>
       </div>
@@ -45,11 +46,11 @@ const ShoppingCart = () => {
               <th>Quantidade</th>
               <th>Valor</th>
             </tr>
-          </thead><br />
+          </thead>
           <tbody>
             {cart.length === 0 ? (
               <tr>
-                <td colSpan={5}>Carrinho vazio!</td>
+                <td>Carrinho vazio!</td>
               </tr>
             ) : (
               cart.map((item) => {
@@ -102,54 +103,43 @@ const ShoppingCart = () => {
           </tbody>
         </table>
         <div className={styles.cartTotals}>
-          <div>
-            <h2>Valor Total</h2>
-            <div>
-              <span>SUBTOTAL</span>
-              <span>R$ {subtotal}</span>
-            </div>
-            <div>
-              <span>Entrega</span>
-              <div>
-                <div>
-                  <div>
-                    <input
-                      type="radio"
-                      name="deli"
-                      value="Piúma"
-                      id="ygn"
-                      checked={deli === "Piúma"}
-                      onChange={() => setDeli("Piúma")}
-                    // defaultChecked
-                    />{" "}
-                    <label htmlFor="ygn" className="cursor-pointer">
-                      Retirar na loja
-                    </label>
-                  </div>
-                  <span>R$ 0,00</span>
-                </div>
-                <div>
-                  <div>
-                    <input
-                      type="radio"
-                      name="delivery"
-                      checked={deli === "Others"}
-                      onChange={() => setDeli("Others")}
-                    />{" "}
-                    <label htmlFor="others" className="cursor-pointer">
-                      Outras Cidades
-                    </label>
-                  </div>
-                  <span>R$ 7,00</span>
-                </div>
-              </div>
-            </div>
-            <div className="">
-              <span>TOTAL</span>
-              <span>R$ {subtotal + (deli === "Piúma" ? 0.0 : 7.0)}</span>
-            </div>
-            <button>Finalizar Compra</button>
+          <h2>Valor Total</h2>
+          <div className={styles.subtotal}>
+            SUBTOTAL
+            <span>R$ {subtotal},00</span>
           </div>
+
+          <span className={styles.deliveryOptions}>Entrega</span>
+
+          <div className={styles.withdrawStore}>
+            <input
+              type="radio"
+              name="delivery"
+              value="Piúma"
+              checked={deli === "Piúma"}
+              onChange={() => setDeli("Piúma")}
+            />{" "}
+            Retirar na loja
+            <span>R$ 0,00</span>
+          </div>
+
+          <div className={styles.delivery}>
+            <input
+              type="radio"
+              name="delivery"
+              checked={deli === "Others"}
+              onChange={() => setDeli("Others")}
+            />{" "}
+            Outras Cidades
+            <span>R$ 7,00</span>
+          </div>
+
+
+          <div className={styles.total}>
+            TOTAL
+            <span>R$ {subtotal + (deli === "Piúma" ? 0.0 : 7.0)},00</span>
+          </div>
+          <button>Finalizar Compra</button>
         </div>
       </div>
       <div className={styles.clearCart}>

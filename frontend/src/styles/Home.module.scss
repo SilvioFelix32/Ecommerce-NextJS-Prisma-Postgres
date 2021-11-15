@@ -7,7 +7,7 @@ $admin-footer-height: 10rem;
 $admin-bfooter-height: 1.5rem;
 $admin-nav-width: 50px;
 
-// Main Layout Grid
+//Grid Layout
 
 .container {
   height: 100vh;
@@ -27,6 +27,7 @@ $admin-nav-width: 50px;
     "bfooter bfooter";
 }
 
+// Grid Main - Carroulsel is the submain
 .contentContainer {
   grid-area: main;
   display: grid;
