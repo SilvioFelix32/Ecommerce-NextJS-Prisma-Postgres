@@ -5,7 +5,7 @@ $admin-header-height: 5rem;
 $admin-main-height: 80vh;
 $admin-footer-height: 10rem;
 $admin-bfooter-height: 1.5rem;
-$admin-nav-width: 20px;
+$admin-nav-width: 50px;
 
 // Main Layout Grid
 
@@ -30,11 +30,10 @@ $admin-nav-width: 20px;
 .contentContainer {
   grid-area: main;
   display: grid;
+  height: 100%;
   width: 100%;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas:
-    "a"
-    "b";
+  grid-template-rows: 1fr;
+  grid-template-areas: "subMain";
 
   -webkit-transition: all 500ms ease-in-out;
   -moz-transition: all 500ms ease-in-out;

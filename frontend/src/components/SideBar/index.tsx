@@ -29,11 +29,13 @@ export default function SideBar({ isCollapsed }: SideBarProps) {
                         Favoritos
                     </a>
                 </MenuItem>
-                <SubMenu title="Contate-nos" icon={<RiContactsLine />}>
+              {/*   <SubMenu title="Contate-nos" icon={<RiContactsLine />}>
                     <MenuItem icon={<ImWhatsapp />}>Whatsapp</MenuItem>
                     <MenuItem icon={<ImFacebook />}>Facebook</MenuItem>
                     <MenuItem icon={<ImMail4 />}>Email.com</MenuItem>
-                </SubMenu>
+                </SubMenu> */}
+                <MenuItem icon={<FiHelpCircle />}>Opção</MenuItem>
+                <MenuItem icon={<FiHelpCircle />}>Opção 2</MenuItem>
                 <MenuItem icon={<FiHelpCircle />}>Ajuda?</MenuItem>
 
                 <SidebarFooter>

@@ -17,7 +17,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 76%;
 
   input {
     height: 2rem;
@@ -59,9 +58,9 @@
   display: flex;
   align-items: center;
   align-self: flex-start;
- 
+
   background: var(--orange);
-  
+
   input {
     cursor: pointer;
 
@@ -70,10 +69,10 @@
 
     border: 0;
     outline: none;
-    
+
     color: var(--blue);
   }
-  
+
   label {
     cursor: pointer;
     font-size: 13px;
@@ -82,17 +81,15 @@
 }
 
 .textFooter {
-  max-height: 20%;
   margin-top: 0.5rem;
   padding-top: 0.5rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
 
   button.signInButton {
-    height: 2.5rem;
+    height: 2rem;
     width: 20rem;
     border-radius: 0.5rem;
     border: 0;
@@ -110,14 +107,17 @@
   }
 
   p {
+    padding-left: 15%;
     font-weight: bold;
     color: var(--gray-100);
-    margin-top: 0.5rem;
-  }
 
-  a {
-    color: var(--blue);
-    text-decoration: none;
-    cursor: pointer;
+    a {
+      padding-left: 5px;
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 15px;
+      cursor: pointer;
+      font-weight: 400;
+    }
   }
 }

@@ -1,24 +1,32 @@
 .carousel {
-  grid-area: a;
+  grid-area: subMain;
   display: flex;
   align-items: center;
 
-  height: 90%;
+  height: 100%;
   width: 100%;
   margin-left: 25px;
   margin-right: 25px;
-  padding-bottom: 2px;
 
   background-color: var(--white);
 
-  div {
-    align-items: flex-start;
-    justify-content: space-between;
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    padding-left: 1rem;
-    height: 90%;
-    width: 100%;
+    height: 75%;
     background: var(--orange);
+
+    .shoppingCart {
+      align-items: center;
+      justify-content: center;
+      margin-right: 0.2rem;
+      height: 1rem;
+      width: 1rem;
+      color: var(--orange);
+    }
 
     button {
       display: flex;
@@ -41,49 +49,36 @@
       }
     }
   }
-}
 
-.shoppingCart {
-  align-items: center;
-  justify-content: center;
-  margin-right: 0.2rem;
-  height: 1rem;
-  width: 1rem;
-  color: var(--orange);
-}
+  .handleprev {
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+    color: var(--gray-800);
 
-.handleprev {
-  margin-left: 0.6rem;
-  margin-right: 0.6rem;
-  align-items: center;
-  justify-content: space-between;
-  font-weight: bold;
-  cursor: pointer;
-  height: 2rem;
-  width: 2rem;
-  color: var(--gray-800);
+    transition: filter 0.2s;
 
-  transition: filter 0.2s;
-
-  &:hover {
-    filter: brightness(0.8);
+    &:hover {
+      filter: brightness(0.8);
+      color: var(--black);
+    }
   }
-}
 
-.handleNext {
-  margin-left: 0.6rem;
-  margin-right: 0.6rem;
-  align-items: center;
-  justify-content: space-between;
-  font-weight: bold;
-  cursor: pointer;
-  height: 2rem;
-  width: 2rem;
-  color: var(--gray-800);
+  .handleNext {
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+    color: var(--gray-800);
 
-  transition: filter 0.2s;
+    transition: filter 0.2s;
 
-  &:hover {
-    filter: brightness(0.8);
+    &:hover {
+      filter: brightness(0.8);
+      color: var(--black);
+    }
   }
 }

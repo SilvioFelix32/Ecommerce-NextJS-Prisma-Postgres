@@ -7,7 +7,7 @@ import decode from 'jwt-decode'
 import { generateJwtAndRefreshToken } from './auth';
 import { auth } from './config';
 
-import { checkRefreshTokenIsValid, users, main, invalidateRefreshToken } from './main';
+import { checkRefreshTokenIsValid, users, invalidateRefreshToken } from './main';
 import { CreateSessionDTO, DecodedToken } from './types';
 
 const prisma = new PrismaClient()
@@ -15,7 +15,6 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-main();
 
 function checkAuthMiddleware(request: Request, response: Response, next: NextFunction) {
   const { authorization } = request.headers;
@@ -79,7 +78,7 @@ function addUserInformationToRequest(request: Request, response: Response, next:
 }
 
 //Creates a new User.
-app.post(`/user`, async (request, response) => {
+app.post(`/user`, async (request: Request, response: Response) => {
   const newUser = await prisma.user.create({
     data: { ...request.body },
   })
@@ -91,7 +90,7 @@ app.post(`/user`, async (request, response) => {
 })
 
 //Fetches all Users.
-app.get('/users', async (request, response) => {
+app.get('/users', async (request: Request, response: Response) => {
   const users = await prisma.user.findMany()
   response.json({
     success: true,
@@ -101,7 +100,7 @@ app.get('/users', async (request, response) => {
 })
 
 //Session Login
-app.post('/sessions', async (request, response) => {
+app.post('/session', async (request: Request, response: Response) => {
   const { email, password } = request.body as CreateSessionDTO;
 
   const user = await prisma.user.findUnique({
@@ -131,7 +130,7 @@ app.post('/sessions', async (request, response) => {
 });
 
 //If the session exprires refreshToken
-app.post('/refresh', addUserInformationToRequest, async (request, response) => {
+app.post('/refresh', addUserInformationToRequest, async (request: Request, response: Response) => {
   const email = request.user;
   const { refreshToken } = request.body;
 
@@ -179,7 +178,7 @@ app.post('/refresh', addUserInformationToRequest, async (request, response) => {
 });
 
 //I can see my user datas
-app.get('/me', checkAuthMiddleware, async (request, response) => {
+app.get('/me', checkAuthMiddleware, async (request: Request, response: Response) => {
   const email = request.user;
 
   const user = await prisma.user.findUnique({
@@ -201,7 +200,5 @@ app.get('/me', checkAuthMiddleware, async (request, response) => {
 });
 
 
-
-
-
 app.listen(3003);
+console.log('Started server on url: http://localhost:3003')

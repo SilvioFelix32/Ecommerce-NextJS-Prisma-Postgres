@@ -22,36 +22,6 @@ const images = [
     image: <Image src="/notebook3.png" alt="Notebook 3" width="220" height="220" />,
     name: "Notebook 3",
   },
-];
-
-const images2 = [
-  {
-    image: <Image src="/teclado1.png" alt="Teclado 1" width="220" height="220" />,
-    name: "Teclado 1",
-  },
-  {
-    image: <Image src="/teclado2.png" alt="Teclado 2" width="220" height="220" />,
-    name: "Teclado 2",
-  },
-  {
-    image: <Image src="/processador1.png" alt="Processador" width="220" height="220" />,
-    name: "Processador",
-  },
-]
-
-const images3 = [
-  {
-    image: <Image src="/roteador.png" alt="Roteador" width="220" height="220" />,
-    name: "Roteador",
-  },
-  {
-    image: <Image src="/roteador_2.png" alt="Roteador 2" width="220" height="220" />,
-    name: "Roteador 2",
-  },
-  {
-    image: <Image src="/processador1.png" alt="Processador" width="220" height="220" />,
-    name: "Processador",
-  },
 ]
 
 // animate__fadeIn
@@ -84,69 +54,71 @@ export function Carousel() {
     }, 10000000);
     return () => clearInterval(interval);
   }, [handleNext]);
+
   return (
     <>
       <div
         className={styles.carousel}>
+        < AiOutlineArrowLeft
+          className={styles.handleprev}
+          onClick={handlePrev} />
+
         {images.map((ti, index) => {
-          < AiOutlineArrowLeft
-            className={styles.handleprev}
-            onClick={handlePrev} />
           return (
             index === arrIndex && (
-              <div className="1">
+              <ul className="1">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>
-              </div>
+              </ul>
             )
           );
         })}
 
-        {images2.map((ti, index) => {
+        {images.map((ti, index) => {
           return (
             index === arrIndex && (
-              <div className="2">
+              <ul className="2">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>
-              </div>
+              </ul>
             )
           );
         })}
 
-        {images3.map((ti, index) => {
+        {images.map((ti, index) => {
           return (
             index === arrIndex && (
-              <div className="3">
+              <ul className="3">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>
-              </div>
+              </ul>
             )
           );
         })}
 
-        {images3.map((ti, index) => {
+        {images.map((ti, index) => {
           return (
             index === arrIndex && (
-              <div className="4">
+              <ul className="4">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>
-              </div>
+              </ul>
             )
           );
         })}
 
-        {images3.map((ti, index) => {
+        {images.map((ti, index) => {
           return (
             index === arrIndex && (
-              <div className="5"> 
+              <ul className="5">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>
-              </div>
+              </ul>
             )
           );
         })}
@@ -155,9 +127,6 @@ export function Carousel() {
           className={styles.handleNext}
           onClick={handleNext} />
       </div>
-      <AiOutlineArrowRight
-        className={styles.handleNext}
-        onClick={handleNext} />
     </>
   );
 };

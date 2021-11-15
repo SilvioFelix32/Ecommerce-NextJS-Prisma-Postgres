@@ -8,7 +8,7 @@ export const tokens: RefreshTokensStore = new Map()
 const prisma = new PrismaClient({})
 
 // A main function so that you can use async/await
-export async function main() {
+/* export async function main() {
     // Create user
     const createUser = await prisma.user.create({
         data: {
@@ -27,7 +27,7 @@ export async function main() {
         },
     })
     console.log(allUsers)
-}
+} */
 
 export function createRefreshToken(email: string) {
     const currentUserTokens = tokens.get(email) ?? []
@@ -50,12 +50,12 @@ export function createRefreshToken(email: string) {
     tokens.set(email, storedRefreshTokens.filter(token => token !== refreshToken));
   }
 
-main()
+/* main()
     .catch((e) => {
         throw e
     })
     .finally(async () => {
         await prisma.$disconnect()
-    })
+    }) */
 
     //!  put a dollar-sign between "." and "disconnect"

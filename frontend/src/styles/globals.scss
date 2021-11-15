@@ -96,7 +96,7 @@ a {
   transition: all 500ms ease-in-out;
 }
 
-.pro-sidebar > .pro-sidebar-inner {
+.pro-sidebar.collapsed > .pro-sidebar-inner {
   background: var(--blue) !important;
 }
 
@@ -112,6 +112,12 @@ a {
   background: var(--blue) !important;
 }
 
-.pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout .pro-sidebar-footer {
-  margin-top: auto;
+.pro-sidebar.collapsed .pro-menu > ul > .pro-menu-item.pro-sub-menu > .pro-inner-list-item > .popper-inner {
+  max-height: 80vh;
+  width: 30px !important;
+  overflow-y: auto;
+  background: var(--blue) !important;
+  padding-left: 20px;
+  border-radius: 4px;
 }
+

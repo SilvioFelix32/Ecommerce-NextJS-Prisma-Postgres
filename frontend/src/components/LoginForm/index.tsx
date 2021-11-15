@@ -56,14 +56,14 @@ export function LoginForm({ isOpen, setIsOpen }: ModalProps) {
                     />
                     <label htmlFor="remember">Salvar Senha?</label>
                 </div>
-                <button
-                    type="submit"
-                    className={styles.signInButton}
-                >Entrar</button>
-                <p>Não tem uma conta? <Link href="/coming-soon">Cadastrar</Link>.</p>
+                <div className={styles.textFooter}>
+                    <button
+                        type="submit"
+                        className={styles.signInButton}
+                    >Entrar</button>
+                    <p>Não tem uma conta?<Link href="/coming-soon">Cadastrar</Link>.</p>
+                </div>
             </form>
-            {/*  <div className={styles.textFooter}>
-            </div> */}
         </ModalComponent>
     );
 };
