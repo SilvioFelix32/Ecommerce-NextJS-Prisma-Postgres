@@ -100,6 +100,10 @@ a {
   background: var(--blue) !important;
 }
 
+.pro-sidebar .pro-menu a {
+  color: var(--white)!important;
+}
+
 .pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
   background: var(--blue) !important;
 }
@@ -113,10 +117,5 @@ a {
 }
 
 .pro-sidebar.collapsed .pro-menu > ul > .pro-menu-item.pro-sub-menu > .pro-inner-list-item > .popper-inner {
-  max-height: 80vh;
-  width: 30px !important;
-  overflow-y: auto;
   background: var(--blue) !important;
-  padding-left: 20px;
-  border-radius: 4px;
 }

@@ -1,0 +1,129 @@
+.wishlistHead {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 1px;
+    border-top-width: 0px;
+    border-color: var(--blue);
+
+    h1 {
+        align-self: center;
+        margin-top: 6px;
+        margin-bottom: 2px;
+    }
+
+    button {
+        display: inline-block;
+        align-self: flex-start;
+
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        border: 0;
+        margin-left: 10px;
+        padding-left: 10px;
+        height: 40px;
+        width: 210px;
+
+        font-weight: bold;
+        background: var(--gray-100);
+        color: var(--blue);
+
+        transition: filter 0.2s;
+
+        &:hover {
+            background: var(--gray-300);
+        }
+    }
+}
+
+.wishlistContext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    margin-top: 15px;
+
+    table {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+
+        width: 90%;
+        height: 100%;
+        margin-right: 5px;
+
+        thead {
+            height: 2rem;
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            background: var(--gray-100);
+
+            tr {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 100%;
+
+                th {
+                    font-weight: 400;
+                }
+            }
+        }
+
+        tbody {
+            width: 100%;
+            height: 215px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            tr {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.clearList {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 3rem;
+    padding-right: 80px;
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 2.5rem;
+        width: 15rem;
+        border: 0;
+        margin-bottom: 1.5rem;
+
+        font-weight: bold;
+        background: var(--gray-800);
+        color: var(--white);
+        transition: filter 0.2s;
+
+        &:hover {
+            background: gray;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
-import { BsCartX } from 'react-icons/bs';
+import { BsCartX, BsFillQuestionCircleFill, BsFillSignpost2Fill, BsGearFill } from 'react-icons/bs';
 import { FaHeart } from 'react-icons/fa';
-import { FiHelpCircle, FiLogIn } from 'react-icons/fi';
+import { FiLogIn } from 'react-icons/fi';
 import { RiContactsLine } from 'react-icons/ri';
 import { ImWhatsapp, ImPriceTag, ImFacebook, ImMail4 } from "react-icons/im";
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarFooter } from 'react-pro-sidebar';
@@ -32,14 +32,19 @@ export default function SideBar({ isCollapsed }: SideBarProps) {
                         Favoritos
                     </a>
                 </MenuItem>
-                {/*   <SubMenu title="Contate-nos" icon={<RiContactsLine />}>
+                <SubMenu title="Contate-nos" icon={<RiContactsLine />}>
                     <MenuItem icon={<ImWhatsapp />}>Whatsapp</MenuItem>
                     <MenuItem icon={<ImFacebook />}>Facebook</MenuItem>
                     <MenuItem icon={<ImMail4 />}>Email.com</MenuItem>
-                </SubMenu> */}
-                <MenuItem icon={<FiHelpCircle />}>Opção</MenuItem>
-                <MenuItem icon={<FiHelpCircle />}>Opção 2</MenuItem>
-                <MenuItem icon={<FiHelpCircle />}>Ajuda?</MenuItem>
+                </SubMenu>
+                <MenuItem icon={<BsFillQuestionCircleFill />}>Opção</MenuItem>
+                <MenuItem icon={<BsFillSignpost2Fill />}>Ajuda?</MenuItem>
+                <MenuItem icon={<BsGearFill />}>
+                    <a
+                        href="/dashboard">
+                        Administração
+                    </a>
+                </MenuItem>
 
                 <SidebarFooter>
                     <MenuItem icon={<FiLogIn />}><a

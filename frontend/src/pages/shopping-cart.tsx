@@ -2,12 +2,12 @@ import React, { useContext, useState } from "react";
 
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
-import { TopNav } from "../components/TopNav/TopNav";
+import { TopNav } from "../components/TopNav";
 import CartContext from "../../context/cart/CartContext";
 import BottomFooter from "../components/BottomFooter";
 import Link from "next/link";
 
-import styles from './styles/ShoppingCart.module.scss'
+import styles from '../styles/ShoppingCart.module.scss'
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 // let w = window.innerWidth;
@@ -28,9 +28,9 @@ const ShoppingCart = () => {
           Carrinho de Compras
         </h1>
         <Link href="/#">
-          <a>
+          <button>
             <AiOutlineArrowLeft /> Continuar Comprando
-          </a>
+          </button>
         </Link>
       </div>
       <div className={styles.cartArea}>

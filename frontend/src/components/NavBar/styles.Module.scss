@@ -1,0 +1,21 @@
+/* Navegation Bar */
+.topLeftMenu {
+    height: 2rem;
+
+    display: flex;
+    list-style: none;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    background: var(--orange);
+
+    li {
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+        color: var(--white);
+    }
+}
+
+.container {
+    grid-area: topnav;
+}

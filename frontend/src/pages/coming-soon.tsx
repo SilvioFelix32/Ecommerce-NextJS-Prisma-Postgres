@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-import styles from "./Styles/CommingSoon.module.scss"
+import styles from "../styles/CommingSoon.module.scss"
 
 const ComingSoon = () => (
   <div className={styles.pageContent}>

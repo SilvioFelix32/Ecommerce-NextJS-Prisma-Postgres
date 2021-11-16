@@ -1,12 +1,8 @@
 .carousel {
-  grid-area: subMain;
   display: flex;
   align-items: center;
 
   height: 100%;
-  width: 100%;
-  margin-left: 25px;
-  margin-right: 25px;
 
   background-color: var(--white);
 
@@ -15,9 +11,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    margin-right: 5px;
+    margin-left: 5px;
     height: 75%;
-    background: var(--orange);
+    background: var(--white);
 
     .shoppingCart {
       align-items: center;

@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 10px;
     padding: 1px;
     border-top-width: 0px;
-    border-color: var(--blue);
 
     h1 {
         align-self: center;
@@ -12,12 +12,29 @@
         margin-bottom: 2px;
     }
 
-    a {
+    button {
         display: inline-block;
         align-self: flex-start;
-        padding-left: 10px;
-        color: var(--blue);
+
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
+
+        border: 0;
+        margin-left: 10px;
+        padding-left: 10px;
+        height: 40px;
+        width: 210px;
+
+        font-weight: bold;
+        background: var(--gray-100);
+        color: var(--blue);
+
+        transition: filter 0.2s;
+
+        &:hover {
+            background: var(--gray-300);
+        }
     }
 }
 
@@ -41,6 +58,7 @@
 
         width: 100%;
         height: 100%;
+        margin-right: 5px;
         align-items: flex-start;
 
         thead {
@@ -49,20 +67,36 @@
 
             display: flex;
             align-items: center;
-            justify-content: space-around;
+            background: var(--gray-100);
 
-            th{
-            
+            tr {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 100%;
+
+                th {
+                    font-weight: 400;
+                }
             }
         }
 
         tbody {
             width: 100%;
-            height: 200px;
+            height: 215px;
 
             display: flex;
             justify-content: center;
             align-items: center;
+
+            tr {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: 100%;
+                height: 100%;
+            }
         }
     }
 
@@ -73,6 +107,7 @@
         justify-content: space-between;
         padding-left: 15px;
         padding-right: 15px;
+        margin-right: 10px;
 
         width: 30%;
         background: var(--gray-100);
