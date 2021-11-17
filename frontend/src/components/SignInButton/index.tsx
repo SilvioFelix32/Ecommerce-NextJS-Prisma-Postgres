@@ -5,7 +5,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const SignInButton: React.FC<ButtonProps> = ({ ...rest }) => {
-
     const [session] = useSession();
     const isUserLoggedIn = session; //MUDAR? SÓ RETIRAR E TROCAR O RETURN POR SESSION
 

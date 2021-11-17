@@ -11,10 +11,12 @@ yarn dev
 Then open [http://localhost:3000](http://localhost:3000) with your browser.
 ## 🙂 Demonstration
 
-<img alt="Home" title="ecommerce" src=""/>
+<img alt="Home" title="ecommerce" src="/ecommerceMains.mp4"/>
 <br>
 <br>
-<img alt="demonstration" title="demonstrario" src=""/>
+<img alt="kart" title="kart route" src="/KartArea.jpg"/>
+<img alt="wishlist" title="wishlist route" src="/wishlist.jpg"/>
+<img alt="dashboard" title="dashboard route" src="/dasboard.jpg"/>
 
 <p align="center">
  This is a simple e-commerce template with CRUD

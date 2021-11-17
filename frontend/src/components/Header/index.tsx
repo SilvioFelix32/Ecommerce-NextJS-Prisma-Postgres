@@ -16,7 +16,7 @@ export function Header() {
         <div className={styles.headerContent}>
           <nav>
             <Link href="/#">
-              <img src="/Logo-SFTech.png" alt="logo" />
+              <img src="/logoA.png" alt="logo" />
             </Link>
           </nav>
           <div className={styles.searchInput}>
