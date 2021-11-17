@@ -51,7 +51,7 @@ export function Carousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 10000000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [handleNext]);
 
@@ -103,18 +103,6 @@ export function Carousel() {
           return (
             index === arrIndex && (
               <ul className="4">
-                {ti.image}
-                <button><AiOutlineShoppingCart
-                  className={styles.shoppingCart} />{ti.name}</button>
-              </ul>
-            )
-          );
-        })}
-
-        {images.map((ti, index) => {
-          return (
-            index === arrIndex && (
-              <ul className="5">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>

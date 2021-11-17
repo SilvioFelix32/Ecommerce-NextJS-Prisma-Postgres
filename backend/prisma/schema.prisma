@@ -19,3 +19,9 @@ enum Role {
   USER
   ADMIN
 }
+
+//model Post {
+//  id       Int   @id @default(autoincrement())
+// author   User? @relation(fields: [authorId], references: [id])
+// authorId Int?
+//}

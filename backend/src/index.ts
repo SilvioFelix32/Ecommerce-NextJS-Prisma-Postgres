@@ -82,21 +82,22 @@ app.post(`/user`, async (request: Request, response: Response) => {
   const newUser = await prisma.user.create({
     data: { ...request.body },
   })
-  response.json({
-    success: true,
-    payload: newUser,
-    message: "Usuário Criado com Sucesso!",
-  })
+  response.json(newUser)
 })
 
 //Fetches all Users.
 app.get('/users', async (request: Request, response: Response) => {
   const users = await prisma.user.findMany()
-  response.json({
-    success: true,
-    payload: users,
-    message: "Seja Bem Vindo!",
+  response.json(users)
+})
+
+//Delete User by id
+app.delete(`/deleteUser/:id`, async (request: Request, response: Response) => {
+  const { id } = request.params
+  const deleteUser = await prisma.user.delete({
+    where: { id: Number(id) },
   })
+  response.json({ deleteUser })
 })
 
 //Session Login

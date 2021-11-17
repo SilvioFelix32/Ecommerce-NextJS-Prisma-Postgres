@@ -1,4 +1,5 @@
 # project/docker-compose.yml
+#Docker will Automate deployments and Compilations on PostgresSql
 
 version: '3.9'
 services:

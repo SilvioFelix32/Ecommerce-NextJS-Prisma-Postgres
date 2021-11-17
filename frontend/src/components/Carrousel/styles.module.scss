@@ -1,6 +1,7 @@
 .carousel {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 
   height: 100%;
 
@@ -10,11 +11,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    border-radius: 10px;
+
     margin-right: 5px;
     margin-left: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
     height: 75%;
     background: var(--white);
+    
+    transition: filter 0.2s;
+
+    &:hover{
+      box-shadow: rgb(40 41 61 / 4%) 0px 4px 8px, rgb(96 97 112 / 16%) 0px 8px 16px;
+    }
 
     .shoppingCart {
       align-items: center;
@@ -38,6 +49,7 @@
       font-weight: bold;
       background: var(--white);
       color: var(--orange);
+      border: 1px solid var(--orange);
 
       transition: filter 0.2s;
 

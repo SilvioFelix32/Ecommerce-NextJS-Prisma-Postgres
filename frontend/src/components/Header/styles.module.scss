@@ -1,14 +1,14 @@
 .headerContainer {
   height: 5rem;
-  border-bottom: 1px solid var(--white);
   background-color: var(--blue);
-  grid-area: header;
+  margin-bottom: 0;
 }
 
 .headerContent {
   width: 100%;
   height: 100%;
-  margin: 0 auto;
+  margin: 0;
+  margin-bottom: 0;
   padding: 0;
 
   display: flex;

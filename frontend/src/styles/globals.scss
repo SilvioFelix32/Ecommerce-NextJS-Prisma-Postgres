@@ -5,6 +5,7 @@
 }
 
 :root {
+  --bg-gray-50: #f5f6f8;
   --gray-100: #e1e1e6;
   --gray-300: #a8a8b3;
   --gray-800: #8d8d96;
@@ -102,6 +103,12 @@ a {
 
 .pro-sidebar .pro-menu a {
   color: var(--white)!important;
+
+  transition: filter 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 .pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {

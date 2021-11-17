@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {
     BsHouse,
     BsFillPersonLinesFill,
@@ -15,6 +14,7 @@ interface SideBarProps {
 }
 
 export function DashboardSideBar({ isCollapsed }: SideBarProps) {
+
     return (
         <ProSidebar
             collapsed={isCollapsed}
@@ -27,7 +27,7 @@ export function DashboardSideBar({ isCollapsed }: SideBarProps) {
                     </a>
                 </MenuItem>
                 <MenuItem icon={<BsFillPersonLinesFill />}>
-                    Meus dados
+                    Usuários
                 </MenuItem>
                 <MenuItem icon={<BsKey />}>
                     Segurança

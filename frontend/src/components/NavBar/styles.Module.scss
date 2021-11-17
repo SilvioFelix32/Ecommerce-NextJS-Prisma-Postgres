@@ -1,21 +1,24 @@
 /* Navegation Bar */
-.topLeftMenu {
-    height: 2rem;
-
-    display: flex;
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+  height: 2rem;
+  width: 100%;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  background: var(--orange);
+  
+  li {
     list-style: none;
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-    background: var(--orange);
+    color: var(--white);
+    cursor: pointer;
 
-    li {
-        margin-left: 1rem;
-        display: flex;
-        align-items: center;
-        color: var(--white);
+    transition: filter 0.2s;
+
+    &:hover{
+      color: var(--gray-100)
     }
-}
-
-.container {
-    grid-area: topnav;
+  }
 }

@@ -66,7 +66,7 @@ export function Wishlist() {
           <tbody>
             {wishlist.length === 0 ? (
               <tr>
-                <td colSpan={5}>Lista de Desejos Vazia!</td>
+                <td>Lista de Desejos Vazia!</td>
               </tr>
             ) : (
               wishlist.map((item) => {
