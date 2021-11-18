@@ -38,16 +38,16 @@ export function createRefreshToken(email: string) {
     return refreshToken;
   }
   
-  export function checkRefreshTokenIsValid(email: string, refreshToken: string) {
-    const storedRefreshTokens = tokens.get(email) ?? []
+  export function checkRefreshTokenIsValid(name: string, refreshToken: string) {
+    const storedRefreshTokens = tokens.get(name) ?? []
   
     return storedRefreshTokens.some(token => token === refreshToken)
   }
   
-  export function invalidateRefreshToken(email: string, refreshToken: string) {
-    const storedRefreshTokens = tokens.get(email) ?? []
+  export function invalidateRefreshToken(name: string, refreshToken: string) {
+    const storedRefreshTokens = tokens.get(name) ?? []
   
-    tokens.set(email, storedRefreshTokens.filter(token => token !== refreshToken));
+    tokens.set(name, storedRefreshTokens.filter(token => token !== refreshToken));
   }
 
 /* main()

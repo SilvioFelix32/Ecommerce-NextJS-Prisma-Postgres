@@ -20,7 +20,6 @@ Then open [http://localhost:3000](http://localhost:3000) with your browser.
 
 <p align="center">
  This is a simple e-commerce template with CRUD
-    <sub> Made with 💖 by
     |<a href="https://github.com/SilvioFelix32">Silvio Félix.
 </p>
 

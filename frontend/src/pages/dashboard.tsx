@@ -4,15 +4,20 @@ import { Header } from "../components/Header"
 import { DashboardSideBar } from "../components/DashboardSideBar"
 import { Footer } from "../components/Footer"
 import BottomFooter from "../components/BottomFooter"
+import { NewUserFom } from "../components/NewUserFom"
 import { api } from "../../services/api"
 import { MdDeleteOutline, MdOutlineModeEditOutline, } from "react-icons/md";
 
 import styles from "../styles/Dashboard.module.scss"
+import { BsList } from "react-icons/bs"
+import { EditUserFom } from "../components/EditUserForm"
 
 export default function Dashboard() {
     const [isCollapsed, setIsCollapsed] = useState(true)
+    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenEditModal, setIsOpenEditModal] = useState(false);
+    const [isOpenNewUserModal, setIsOpenNewUserModal] = useState(false);
     const [users, setUsers] = useState([]);
-    const [deleteUser, setDeleteUser] = useState([]);
 
     useEffect(() => {
         api.get('/users')
@@ -23,14 +28,9 @@ export default function Dashboard() {
             .catch((err) => alert("Usuários não encontrados"));
     }, []);
 
-    useEffect(() => {
-        api.delete('/deleteUser/:id')
-            .then((res) => {
-                setDeleteUser(res.data);
-                console.log(res.data);
-            })
-            .catch((err) => alert("Usuários apagado"));
-    }, []);
+    const handleDeleteUser = async (userId: number) => {
+        await api.delete(`/users/${userId}`)
+    }
 
     return (
         <div>
@@ -39,9 +39,15 @@ export default function Dashboard() {
             <div className={styles.content}>
                 <DashboardSideBar isCollapsed={isCollapsed} />
                 <div className={styles.dashboard}>
+                    <h1 className={styles.head}>Usuários Cadastrados</h1>
+                    <button
+                        className={styles.registerUser}
+                        onClick={() => setIsOpenNewUserModal(true)}>
+                        Cadastrar Usuário
+                    </button>
+                    <NewUserFom isOpen={isOpenNewUserModal} setIsOpen={setIsOpenNewUserModal} />
                     <table
                         className={styles.fetch}>
-                        <h1>Usuários Cadastrados</h1>
                         <thead className={styles.theads}>
                             <tr>
                                 <th>
@@ -77,16 +83,21 @@ export default function Dashboard() {
                                             <td>
                                                 {user.role}
                                             </td>
-                                            {/*     <td>
-                                                <button
-                                                    value="Editar Usuário"
-                                                ><MdOutlineModeEditOutline /></button>
-                                            </td>  */}
-                                            <td >
-                                                <button
-                                                    key={user.id}
-                                                    value="Deletar Usuário"
-                                                ><MdDeleteOutline />{user.email}</button>
+                                            <td>
+                                                <div className={styles.options}>
+                                                    <button
+                                                        onClick={() => setIsOpenEditModal(true)}
+                                                    ><MdOutlineModeEditOutline />
+                                                    </button>
+                                                    <EditUserFom
+                                                        isOpen={isOpenEditModal}
+                                                        setIsOpen={setIsOpenEditModal}
+                                                        selectedUserId={user.id} />
+                                                    <button
+                                                        value="Deletar Usuário"
+                                                        onClick={() => handleDeleteUser(user.id)}
+                                                    ><MdDeleteOutline /></button>
+                                                </div>
                                             </td>
                                         </tr>
                                     );
@@ -98,6 +109,6 @@ export default function Dashboard() {
             </div>
             <Footer />
             <BottomFooter />
-        </div>
+        </div >
     )
 }

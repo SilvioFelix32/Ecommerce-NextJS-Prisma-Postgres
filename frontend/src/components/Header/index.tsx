@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SignInButton } from "../SignInButton";
+import  { SignInButton }  from "../SignInButton";
 import { BsSearch } from 'react-icons/bs';
 import { LoginForm } from '../LoginForm'
 import Link from 'next/link'

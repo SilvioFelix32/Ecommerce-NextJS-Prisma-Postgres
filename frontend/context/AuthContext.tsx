@@ -4,8 +4,8 @@ import Router from 'next/router'
 import { api } from '../services/api';
 
 type User = {
+    name: string;
     email: string;
-    permissions: string[];
     roles: string[];
 }
 
@@ -16,6 +16,7 @@ type signInCredentials = {
 
 type AuthContextData = {
     signIn(credentials: signInCredentials): Promise<void>;
+    signOut(): Promise<void>;
     user: User;
     isAuthenticated: boolean;
 };
@@ -26,13 +27,6 @@ type AuthProviderProps = {
 
 export const AuthContext = createContext({} as AuthContextData)
 
-export function signOut() {
-    destroyCookie(undefined, 'nextauth.token')
-    destroyCookie(undefined, 'nextauth.refreshToken')
-
-    Router.push('/')
-}
-
 export function AuthProvider({ children }: AuthProviderProps) {
     const [user, setUser] = useState<User>();
     const isAuthenticated = !!user;
@@ -42,9 +36,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
         if (token) {
             api.get('/user').then(response => {
-                const { email, permissions, roles } = response.data
+                const { name, email, roles } = response.data
 
-                setUser({ email, permissions, roles })
+                setUser({ name, email, roles })
             }).catch(() => {
                 signOut();
             })
@@ -58,7 +52,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
                 password
             })
 
-            const { token, refreshToken, permissions, roles } = response.data;
+            const { token, refreshToken, user } = response.data;
 
             //using nookies to create the nextJS cookies  
             setCookie(undefined, 'nextauth.token', token, {
@@ -71,9 +65,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
             })
 
             setUser({
-                email,
-                permissions,
-                roles,
+                name: user.name as string,
+                email: user.email as string,
+                roles: user.role
             })
 
             api.defaults.headers['Authorization'] = `Bearer ${token}`
@@ -84,8 +78,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
         }
     }
 
+    async function signOut() {
+        setUser(null)
+
+        Router.push('/')
+    }
+
     return (
-        <AuthContext.Provider value={{ signIn, isAuthenticated, user }}>
+        <AuthContext.Provider value={{ signIn, signOut, isAuthenticated, user }}>
             {children}
         </AuthContext.Provider>
     )

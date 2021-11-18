@@ -1,28 +1,26 @@
+import { useContext } from 'react';
+import { AuthContext } from '../../../context/AuthContext';
 import { FaUserCircle } from 'react-icons/fa';
 import styles from "./styles.module.scss";
-import { signIn, signOut, useSession } from 'next-auth/client';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const SignInButton: React.FC<ButtonProps> = ({ ...rest }) => {
-    const [session] = useSession();
-    const isUserLoggedIn = session; //MUDAR? SÓ RETIRAR E TROCAR O RETURN POR SESSION
+    const { user, signOut } = useContext(AuthContext)
 
-    return isUserLoggedIn ? (
+    return user ? (
         <button
             type="button"
             className={styles.signInButton}
-            onClick={() => signOut()}
             {...rest}
+            onClick={() => signOut()}
         >
-            <FaUserCircle color="#ffa601" />
-            Usuário
+            <FaUserCircle color="#ffa601" />{user.name}
         </button>
     ) : (
         <button
             type="button"
             className={styles.signInButton}
-            onClick={() => signIn('Bem Vindo!')}
             {...rest}
         >
             <FaUserCircle color="#fff" />

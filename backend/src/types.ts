@@ -1,9 +1,11 @@
 export type CreateSessionDTO = {
+  name: string;
   email: string;
   password: string;
 }
 
 type UserData = {
+  name: string;
   password: string;
   roles: string[];
 }

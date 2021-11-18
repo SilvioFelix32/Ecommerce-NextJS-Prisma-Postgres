@@ -30,7 +30,7 @@ export function DashboardSideBar({ isCollapsed }: SideBarProps) {
                     Usuários
                 </MenuItem>
                 <MenuItem icon={<BsKey />}>
-                    Segurança
+                    Produtos
                 </MenuItem>
                 <MenuItem icon={<BsPeople />}>
                     Privacidade

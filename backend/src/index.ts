@@ -1,7 +1,7 @@
 // backend/src/index.tsimport { PrismaClient } from '@prisma/client'
 import { PrismaClient } from '@prisma/client'
 import cors from 'cors';
-import express, { NextFunction, Request, Response } from 'express';
+import express, { NextFunction, Request, response, Response } from 'express';
 import jwt from 'jsonwebtoken'
 import decode from 'jwt-decode'
 import { generateJwtAndRefreshToken } from './auth';
@@ -91,13 +91,23 @@ app.get('/users', async (request: Request, response: Response) => {
   response.json(users)
 })
 
-//Delete User by id
-app.delete(`/deleteUser/:id`, async (request: Request, response: Response) => {
+//Update user data
+app.put(`/user/:id`, async (request: Request, response: Response) => {
   const { id } = request.params
-  const deleteUser = await prisma.user.delete({
+  const user = await prisma.user.update({
+    where: { id: Number(id) },
+    data: { ...request.body },
+  })
+  response.json(user)
+})
+
+//Delete User by id
+app.delete(`/users/:id`, async (request: Request, response: Response) => {
+  const { id } = request.params
+  await prisma.user.delete({
     where: { id: Number(id) },
   })
-  response.json({ deleteUser })
+  response.json('Usuário Deletado!')
 })
 
 //Session Login
@@ -126,7 +136,7 @@ app.post('/session', async (request: Request, response: Response) => {
   return response.json({
     token,
     refreshToken,
-    roles: user.role
+    user
   });
 });
 

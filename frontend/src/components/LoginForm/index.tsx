@@ -22,7 +22,7 @@ export function LoginForm({ isOpen, setIsOpen }: ModalProps) {
 
         const data = {
             email,
-            password,
+            password
         }
 
         await signIn(data);
@@ -40,7 +40,7 @@ export function LoginForm({ isOpen, setIsOpen }: ModalProps) {
             <form onSubmit={handleSubmit} className={styles.modalContext}>
                 <h2>Entre com sua conta</h2> <br />
                 <p>Email</p>
-                <input type="email" value={email} onChange={e => setEmail(e.target.value)} /> <br />
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)} /> <br /> 
                 <div className="passwordLine">
                     <p>Senha<a href="/coming-soon">Esqueceu sua Senha?</a></p>
                 </div>
