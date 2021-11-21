@@ -66,7 +66,9 @@ export function Carousel() {
         {images.map((ti, index) => {
           return (
             index === arrIndex && (
-              <ul className="1">
+              <ul
+                key={Math.random()}
+                className="1">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>
@@ -78,7 +80,9 @@ export function Carousel() {
         {images.map((ti, index) => {
           return (
             index === arrIndex && (
-              <ul className="2">
+              <ul
+                key={Math.random()}
+                className="2">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>
@@ -90,7 +94,9 @@ export function Carousel() {
         {images.map((ti, index) => {
           return (
             index === arrIndex && (
-              <ul className="3">
+              <ul
+                key={Math.random()}
+                className="3">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>
@@ -102,7 +108,9 @@ export function Carousel() {
         {images.map((ti, index) => {
           return (
             index === arrIndex && (
-              <ul className="4">
+              <ul
+                key={Math.random()}
+                className="4">
                 {ti.image}
                 <button><AiOutlineShoppingCart
                   className={styles.shoppingCart} />{ti.name}</button>

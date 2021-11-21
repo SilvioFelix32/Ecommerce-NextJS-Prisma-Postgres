@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Carousel } from '../components/Carrousel';
 import { Header } from '../components/Header';
-import { TopNav } from "../components/TopNav";
 import { Footer } from '../components/Footer';
 import { NavBar } from '../components/NavBar';
 import SideBar from '../components/SideBar';

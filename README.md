@@ -14,8 +14,8 @@ Then open [http://localhost:3000](http://localhost:3000) with your browser.
 <img alt="Home" title="ecommerce" src="/public/ecommerceMains.mp4"/>
 <br>
 <br>
-<img alt="kart" title="kart route" src="/public/KartArea.jpg"/>
-<img alt="wishlist" title="wishlist route" src="/public/wishlist.jpg"/>
+<img alt="kart" title="kart route" src="https://imgur.com/JOV7ujB"/>
+<img alt="wishlist" title="wishlist route" src="https://imgur.com/M8RdZEk"/>
 <img alt="dashboard" title="dashboard route" src="/public/dasboard.jpg"/>
 
 <p align="center">

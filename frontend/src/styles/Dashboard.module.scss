@@ -24,8 +24,9 @@
 
 .registerUser {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    align-self: flex-end;
 
     height: 2rem;
     width: 15rem;

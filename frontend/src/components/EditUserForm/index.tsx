@@ -61,6 +61,7 @@ export function EditUserFom({ isOpen, setIsOpen, selectedUserId }: ModalProps) {
                 </select>
                 <button
                     type="submit"
+                    onClick={onCloseModal}
                 >Cadastrar</button>
             </form>
         </ModalComponent>

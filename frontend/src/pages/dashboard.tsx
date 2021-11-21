@@ -9,7 +9,6 @@ import { api } from "../../services/api"
 import { MdDeleteOutline, MdOutlineModeEditOutline, } from "react-icons/md";
 
 import styles from "../styles/Dashboard.module.scss"
-import { BsList } from "react-icons/bs"
 import { EditUserFom } from "../components/EditUserForm"
 
 export default function Dashboard() {
@@ -41,8 +40,9 @@ export default function Dashboard() {
                 <div className={styles.dashboard}>
                     <h1 className={styles.head}>Usuários Cadastrados</h1>
                     <button
+                        type="submit"
                         className={styles.registerUser}
-                        onClick={() => setIsOpenNewUserModal(true)}>
+                        onClick={() => setIsOpenNewUserModal(true)} >
                         Cadastrar Usuário
                     </button>
                     <NewUserFom isOpen={isOpenNewUserModal} setIsOpen={setIsOpenNewUserModal} />
@@ -86,6 +86,7 @@ export default function Dashboard() {
                                             <td>
                                                 <div className={styles.options}>
                                                     <button
+                                                        type="submit"
                                                         onClick={() => setIsOpenEditModal(true)}
                                                     ><MdOutlineModeEditOutline />
                                                     </button>
@@ -94,6 +95,7 @@ export default function Dashboard() {
                                                         setIsOpen={setIsOpenEditModal}
                                                         selectedUserId={user.id} />
                                                     <button
+                                                        type="submit"
                                                         value="Deletar Usuário"
                                                         onClick={() => handleDeleteUser(user.id)}
                                                     ><MdDeleteOutline /></button>
