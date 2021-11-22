@@ -5,11 +5,11 @@ import { DashboardSideBar } from "../components/DashboardSideBar"
 import { Footer } from "../components/Footer"
 import BottomFooter from "../components/BottomFooter"
 import { NewUserFom } from "../components/NewUserFom"
+import { EditUserFom } from "../components/EditUserForm"
 import { api } from "../../services/api"
 import { MdDeleteOutline, MdOutlineModeEditOutline, } from "react-icons/md";
 
 import styles from "../styles/Dashboard.module.scss"
-import { EditUserFom } from "../components/EditUserForm"
 
 export default function Dashboard() {
     const [isCollapsed, setIsCollapsed] = useState(true)
@@ -22,7 +22,6 @@ export default function Dashboard() {
         api.get('/users')
             .then((res) => {
                 setUsers(res.data);
-                console.log(res.data);
             })
             .catch((err) => alert("Usuários não encontrados"));
     }, []);
@@ -42,7 +41,10 @@ export default function Dashboard() {
                     <button
                         type="submit"
                         className={styles.registerUser}
-                        onClick={() => setIsOpenNewUserModal(true)} >
+                        onClick={() => {
+                            setIsOpenNewUserModal(true)/* ,
+                                window.location.reload() */
+                        }} >
                         Cadastrar Usuário
                     </button>
                     <NewUserFom isOpen={isOpenNewUserModal} setIsOpen={setIsOpenNewUserModal} />
@@ -97,7 +99,10 @@ export default function Dashboard() {
                                                     <button
                                                         type="submit"
                                                         value="Deletar Usuário"
-                                                        onClick={() => handleDeleteUser(user.id)}
+                                                        onClick={() => {
+                                                            handleDeleteUser(user.id),
+                                                                window.location.reload()
+                                                        }}
                                                     ><MdDeleteOutline /></button>
                                                 </div>
                                             </td>

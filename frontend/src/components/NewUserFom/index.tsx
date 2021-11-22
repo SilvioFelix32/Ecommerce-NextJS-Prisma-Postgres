@@ -1,9 +1,8 @@
-import React, { FormEvent, useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../../context/AuthContext';
+import React, { FormEvent, useState } from 'react';
 import { Modal as ModalComponent } from 'react-responsive-modal';
+import { api } from '../../../services/api';
 import 'react-responsive-modal/styles.css';
 import styles from "./styles.module.scss";
-import { api } from '../../../services/api';
 
 interface ModalProps {
     isOpen: boolean

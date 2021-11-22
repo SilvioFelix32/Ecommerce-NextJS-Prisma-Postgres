@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from 'react'
+import { createContext, ReactNode, useState } from 'react'
 import { setCookie, parseCookies, destroyCookie } from 'nookies';
 import Router from 'next/router'
 import { api } from '../services/api';
@@ -6,6 +6,7 @@ import { api } from '../services/api';
 type User = {
     name: string;
     email: string;
+    password: string;
     roles: string[];
 }
 
@@ -60,6 +61,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             setUser({
                 name: user.name as string,
                 email: user.email as string,
+                password: user.password as string,
                 roles: user.role
             })
 

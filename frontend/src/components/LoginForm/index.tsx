@@ -59,6 +59,7 @@ export function LoginForm({ isOpen, setIsOpen }: ModalProps) {
                 <div className={styles.textFooter}>
                     <button
                         type="submit"
+                        onClick={onCloseModal}
                         className={styles.signInButton}
                     >Entrar</button>
                     <p>Não tem uma conta?<Link href="/coming-soon">Cadastrar</Link>.</p>

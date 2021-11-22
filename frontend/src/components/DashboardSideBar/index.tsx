@@ -27,19 +27,28 @@ export function DashboardSideBar({ isCollapsed }: SideBarProps) {
                     </a>
                 </MenuItem>
                 <MenuItem icon={<BsFillPersonLinesFill />}>
-                    Usuários
-                </MenuItem>
-                <MenuItem icon={<BsKey />}>
-                    Produtos
-                </MenuItem>
-                <MenuItem icon={<BsPeople />}>
-                    Privacidade
+                    <a
+                        /* href="/dashboard" */
+                        onClick={() => {
+                            document.location.assign('/dashboard')
+                        }}>
+                        Usuários
+                    </a>
                 </MenuItem>
                 <MenuItem icon={<BsShop />}>
-                    Vendas
+                    <a
+                        /* href="/products" */
+                        onClick={() => {
+                            document.location.assign('/products')
+                        }}>
+                        Produtos
+                    </a>
                 </MenuItem>
                 <MenuItem icon={<BsReceipt />}>
                     Faturamento
+                </MenuItem>
+                <MenuItem icon={<BsPeople />}>
+                    Privacidade
                 </MenuItem>
             </Menu>
         </ProSidebar>

@@ -1,0 +1,119 @@
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 100%;
+}
+
+.dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 100%;
+    height: 500px;
+}
+
+.head {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.registerProduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+
+    height: 2rem;
+    width: 15rem;
+    border-radius: 0.5rem;
+    border: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 5%;
+
+    font-weight: bold;
+    background: var(--blue);
+    color: var(--white);
+
+    transition: filter 0.2s;
+
+    &:hover {
+        filter: brightness(0.8);
+    }
+}
+
+.fetch {
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px var(--gray-100);
+    background-color: white;
+    text-align: center;
+    // overflow-x: auto;
+    position: relative;
+    // overflow: hidden;
+    width: 90%;
+    font-size: 15px;
+
+    thead {
+        color: var(--gray-800);
+        box-shadow: 0 5px 10px var(--gray-50);
+    }
+
+    tbody {
+        display: block;
+        max-height: 320px;
+        overflow: auto;
+    }
+
+    th {
+        padding: 1rem 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-weight: 400;
+    }
+
+    tr {
+        border-bottom: 1px solid var(--gray-100);
+    }
+
+    td {
+        color: var(--gray-300);
+        font-weight: 400;
+        padding: 1rem 2rem;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    thead,
+    tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        /* even columns width , fix width of table too*/
+    }
+
+    td,
+    th {
+        min-width: 200px;
+    }
+}
+
+.options {
+    button {
+        background: none;
+        color: var(--gray-800);
+        width: 30px;
+        border: 0;
+
+        transition: filter 0.2s;
+        &:hover {
+            background-color: var(--gray-100);
+        }
+    }
+}
