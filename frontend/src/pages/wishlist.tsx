@@ -81,7 +81,7 @@ export function Wishlist() {
                       {item.name}
                     </td>
                     <td>
-                      $ {item.price}
+                      R$ {item.price}
                     </td>
                     <td>
                       <button

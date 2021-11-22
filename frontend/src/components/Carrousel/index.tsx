@@ -24,27 +24,22 @@ const images = [
   },
 ]
 
-// animate__fadeIn
-// animate__lightSpeedInRight
 export function Carousel() {
-  const [arrIndex, setArrIndex] = useState(0);
-  const [animate, setAnimate] = useState("animate__lightSpeedInRight");
+  const [productsArray, SetProductsArray] = useState(0);
 
   const handleNext = useCallback(() => {
-    if (arrIndex === images.length - 1) {
-      setArrIndex(0);
+    if (productsArray === images.length - 1) {
+      SetProductsArray(0);
     } else {
-      setArrIndex((prevState) => prevState + 1);
-      setAnimate("animate__lightSpeedInRight");
+      SetProductsArray((prevState) => prevState + 1);
     }
-  }, [arrIndex]);
+  }, [productsArray]);
 
   const handlePrev = () => {
-    if (arrIndex === 0) {
-      setArrIndex(images.length - 1);
+    if (productsArray === 0) {
+      SetProductsArray(images.length - 1);
     } else {
-      setArrIndex((prevState) => prevState - 1);
-      setAnimate("animate__lightSpeedInLeft");
+      SetProductsArray((prevState) => prevState - 1);
     }
   };
 
@@ -63,57 +58,57 @@ export function Carousel() {
           className={styles.handleprev}
           onClick={handlePrev} />
 
-        {images.map((ti, index) => {
+        {images.map((product, products) => {
           return (
-            index === arrIndex && (
+            products === productsArray && (
               <ul
                 key={Math.random()}
                 className="1">
-                {ti.image}
+                {product.image}
                 <button><AiOutlineShoppingCart
-                  className={styles.shoppingCart} />{ti.name}</button>
+                  className={styles.shoppingCart} />{product.name}</button>
               </ul>
             )
           );
         })}
 
-        {images.map((ti, index) => {
+        {images.map((product, products) => {
           return (
-            index === arrIndex && (
+            products === productsArray && (
               <ul
                 key={Math.random()}
                 className="2">
-                {ti.image}
+                {product.image}
                 <button><AiOutlineShoppingCart
-                  className={styles.shoppingCart} />{ti.name}</button>
+                  className={styles.shoppingCart} />{product.name}</button>
               </ul>
             )
           );
         })}
 
-        {images.map((ti, index) => {
+        {images.map((product, products) => {
           return (
-            index === arrIndex && (
+            products === productsArray && (
               <ul
                 key={Math.random()}
                 className="3">
-                {ti.image}
+                {product.image}
                 <button><AiOutlineShoppingCart
-                  className={styles.shoppingCart} />{ti.name}</button>
+                  className={styles.shoppingCart} />{product.name}</button>
               </ul>
             )
           );
         })}
 
-        {images.map((ti, index) => {
+        {images.map((product, products) => {
           return (
-            index === arrIndex && (
+            products === productsArray && (
               <ul
                 key={Math.random()}
                 className="4">
-                {ti.image}
+                {product.image}
                 <button><AiOutlineShoppingCart
-                  className={styles.shoppingCart} />{ti.name}</button>
+                  className={styles.shoppingCart} />{product.name}</button>
               </ul>
             )
           );

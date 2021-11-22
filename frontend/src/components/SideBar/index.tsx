@@ -54,7 +54,7 @@ export default function SideBar({ isCollapsed }: SideBarProps) {
 
                 <SidebarFooter>
                     <MenuItem icon={<FiLogIn />}><a
-                        href="/teste">
+                        href="/">
                         Entrar
                     </a></MenuItem>
                 </SidebarFooter>
