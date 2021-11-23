@@ -94,6 +94,7 @@ app.get('/users', async (request: Request, response: Response) => {
 //Update user data
 app.put(`/user/:id`, async (request: Request, response: Response) => {
   const { id } = request.params
+  console.log(id)
   const user = await prisma.user.update({
     where: { id: Number(id) },
     data: { ...request.body },
@@ -141,7 +142,7 @@ app.post('/session', async (request: Request, response: Response) => {
 });
 
 //If the session exprires refreshToken
-app.post('/refresh', addUserInformationToRequest, async (request: Request, response: Response) => {
+app.post('/refresh', async (request: Request, response: Response) => {
   const email = request.user;
   const { refreshToken } = request.body;
 
@@ -189,12 +190,12 @@ app.post('/refresh', addUserInformationToRequest, async (request: Request, respo
 });
 
 //I can see my user datas
-app.get('/me', checkAuthMiddleware, async (request: Request, response: Response) => {
+app.get('/me', async (request: Request, response: Response) => {
   const email = request.user;
 
   const user = await prisma.user.findUnique({
     where: {
-      email
+     email: '@hotmail.com'
     },
   })
 

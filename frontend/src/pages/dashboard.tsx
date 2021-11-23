@@ -13,10 +13,10 @@ import styles from "../styles/Dashboard.module.scss"
 
 export default function Dashboard() {
     const [isCollapsed, setIsCollapsed] = useState(true)
-    const [isOpen, setIsOpen] = useState(false);
     const [isOpenEditModal, setIsOpenEditModal] = useState(false);
     const [isOpenNewUserModal, setIsOpenNewUserModal] = useState(false);
     const [users, setUsers] = useState([]);
+    const [reloadData, setReloadData] = useState(0);
 
     useEffect(() => {
         api.get('/users')
@@ -24,7 +24,7 @@ export default function Dashboard() {
                 setUsers(res.data);
             })
             .catch((err) => alert("Usuários não encontrados"));
-    }, []);
+    }, [reloadData]);
 
     const handleDeleteUser = async (userId: number) => {
         await api.delete(`/users/${userId}`)
@@ -39,15 +39,11 @@ export default function Dashboard() {
                 <div className={styles.dashboard}>
                     <h1 className={styles.head}>Usuários Cadastrados</h1>
                     <button
-                        type="submit"
                         className={styles.registerUser}
-                        onClick={() => {
-                            setIsOpenNewUserModal(true)/* ,
-                                window.location.reload() */
-                        }} >
+                        onClick={() => setIsOpenNewUserModal(true)} >
                         Cadastrar Usuário
                     </button>
-                    <NewUserFom isOpen={isOpenNewUserModal} setIsOpen={setIsOpenNewUserModal} />
+                    <NewUserFom isOpen={isOpenNewUserModal} setIsOpen={setIsOpenNewUserModal} handleReloadData={setReloadData} />
                     <table
                         className={styles.fetch}>
                         <thead className={styles.theads}>
@@ -88,20 +84,19 @@ export default function Dashboard() {
                                             <td>
                                                 <div className={styles.options}>
                                                     <button
-                                                        type="submit"
                                                         onClick={() => setIsOpenEditModal(true)}
                                                     ><MdOutlineModeEditOutline />
                                                     </button>
                                                     <EditUserFom
                                                         isOpen={isOpenEditModal}
                                                         setIsOpen={setIsOpenEditModal}
-                                                        selectedUserId={user.id} />
+                                                        setReloadData={setReloadData} 
+                                                        selectedUser={user} />
                                                     <button
-                                                        type="submit"
                                                         value="Deletar Usuário"
                                                         onClick={() => {
-                                                            handleDeleteUser(user.id),
-                                                                window.location.reload()
+                                                            handleDeleteUser(user.id)
+                                                            setReloadData(Math.random())
                                                         }}
                                                     ><MdDeleteOutline /></button>
                                                 </div>

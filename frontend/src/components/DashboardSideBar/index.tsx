@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import {
     BsHouse,
@@ -14,6 +15,7 @@ interface SideBarProps {
 }
 
 export function DashboardSideBar({ isCollapsed }: SideBarProps) {
+    const router = useRouter()
 
     return (
         <ProSidebar
@@ -28,18 +30,16 @@ export function DashboardSideBar({ isCollapsed }: SideBarProps) {
                 </MenuItem>
                 <MenuItem icon={<BsFillPersonLinesFill />}>
                     <a
-                        /* href="/dashboard" */
                         onClick={() => {
-                            document.location.assign('/dashboard')
+                            router.push('/dashboard')
                         }}>
                         Usuários
                     </a>
                 </MenuItem>
                 <MenuItem icon={<BsShop />}>
                     <a
-                        /* href="/products" */
                         onClick={() => {
-                            document.location.assign('/products')
+                            router.push('/products')
                         }}>
                         Produtos
                     </a>

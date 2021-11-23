@@ -7,9 +7,10 @@ import styles from "./styles.module.scss";
 interface ModalProps {
     isOpen: boolean
     setIsOpen: (value: boolean) => void
+    handleReloadData: (value: number) => void
 }
 
-export function NewUserFom({ isOpen, setIsOpen }: ModalProps) {
+export function NewUserFom({ isOpen, setIsOpen, handleReloadData }: ModalProps) {
     const onCloseModal = () => setIsOpen(false);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -26,6 +27,7 @@ export function NewUserFom({ isOpen, setIsOpen }: ModalProps) {
 
         api.post(`/user`, data)
             .then((res) => {
+                handleReloadData(Math.random())
                 onCloseModal()
             })
             .catch((err) => alert("Usuários não encontrados"));

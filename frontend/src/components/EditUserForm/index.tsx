@@ -3,28 +3,25 @@ import { Modal as ModalComponent } from 'react-responsive-modal';
 import { api } from '../../../services/api';
 import 'react-responsive-modal/styles.css';
 import styles from "./styles.module.scss";
-
 interface ModalProps {
     isOpen: boolean
     setIsOpen: (value: boolean) => void
-    selectedUserId: string
+    setReloadData: (value: number) => void
+    selectedUser: {
+        id: number,
+        name: string,
+        email: string,
+        password: string,
+        role: string,
+    }
 }
 
-export function EditUserFom({ isOpen, setIsOpen, selectedUserId }: ModalProps) {
+export function EditUserFom({ isOpen, setIsOpen, selectedUser, setReloadData }: ModalProps) {
     const onCloseModal = () => setIsOpen(false);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [role, setRole] = useState('');
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-        api.get('/users')
-            .then((res) => {
-                setUsers(res.data);
-            })
-            .catch((err) => alert("Usuários não encontrados"));
-    }, []);
+    const [name, setName] = useState(selectedUser.name);
+    const [email, setEmail] = useState(selectedUser.email);
+    const [password, setPassword] = useState(selectedUser.password);
+    const [role, setRole] = useState(selectedUser.role);
 
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
@@ -34,10 +31,11 @@ export function EditUserFom({ isOpen, setIsOpen, selectedUserId }: ModalProps) {
             email,
             password,
             role
-        }
+        };
 
-        api.put(`/user/${selectedUserId}`, data)
+        api.put(`/user/${selectedUser.id}`, data)
             .then((res) => {
+                setReloadData(Math.random())
                 onCloseModal()
             })
             .catch((err) => alert("Usuários não encontrados"))
@@ -52,36 +50,29 @@ export function EditUserFom({ isOpen, setIsOpen, selectedUserId }: ModalProps) {
             open={isOpen}
             onClose={onCloseModal}
             center>
-            {
-                (users.map((user) => {
-                    return (
-                        <form
-                            key={user.id}
-                            onSubmit={handleSubmit}
-                            className={styles.createUser}
-                        >
-                            <p>Nome</p>
-                            <input type="name" value={user.name} onChange={e => setName(e.target.value)} />
-                            <p>Email</p>
-                            <input type="email" value={user.email} onChange={e => setEmail(e.target.value)} />
-                            <p>Senha</p>
-                            <input type="password" value={user.password} onChange={e => setPassword(e.target.value)} />
-                            <p>Cargo</p>
-                            {/* Warning: Use the `defaultValue` or `value` props on <select> instead of setting `selected` on <option>. */}
-                            <select value={user.role} onChange={e => setRole(e.target.value)}>
-                                <option value="admin">ADMINISTRADOR</option>
-                                <option value="user">USUÁRIO</option>
-                            </select>
-                            <button
-                                type="submit"
-                                onClick={onCloseModal}
-                            >Cadastrar</button>
-                        </form>
-                    )
-                }
-                )
-                )
-            }
+
+            <form
+                key={selectedUser.id}
+                onSubmit={handleSubmit}
+                className={styles.createUser}
+            >
+                <p>Nome</p>
+                <input type="name" defaultValue={name} onChange={e => setName(e.target.value)} />
+                <p>Email</p>
+                <input type="email" defaultValue={email} onChange={e => setEmail(e.target.value)} />
+                <p>Senha</p>
+                <input type="password" defaultValue={password} onChange={e => setPassword(e.target.value)} />
+                <p>Cargo</p>
+                <select defaultValue={role} onChange={e => setRole(e.target.value)}>
+                    <option value="ADMIN">ADMINISTRADOR</option>
+                    <option value="USER">USUÁRIO</option>
+                </select>
+                <button
+                    type="submit"
+                    onClick={onCloseModal}
+                >Cadastrar</button>
+            </form>
+
         </ModalComponent>
     );
 };
