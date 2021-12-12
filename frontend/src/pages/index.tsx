@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Carousel } from '../components/Carrousel';
+import { CarouselSlider } from '../components/Carrouselslider';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { NavBar } from '../components/NavBar';
@@ -20,7 +20,7 @@ export default function Home() {
           <NavBar />
           <h1>Seja bem vindo!</h1>
           <h2>Conheça os nossos produtos:</h2>
-          <Carousel />
+          <CarouselSlider />
         </div>
       </div>
       <Footer />

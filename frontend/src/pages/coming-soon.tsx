@@ -8,7 +8,6 @@ const ComingSoon = () => (
   <div className={styles.pageContent}>
     <Head>
       <title>Em breve!</title>
-    {/*   <meta name="viewport" content="initial-scale=1.0, width=device-width" /> */}
       <link rel="shortcut icon" href="/favicon.jpg" />
     </Head>
     <div>
