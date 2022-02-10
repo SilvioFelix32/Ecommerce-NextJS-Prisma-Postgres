@@ -55,6 +55,7 @@ a {
 .pro-sidebar {
   grid-area: nav;
   color: var(--white) !important;
+  min-height: 60vh !important;
   height: 100% !important;
   width: 60px !important;
 

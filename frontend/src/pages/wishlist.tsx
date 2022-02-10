@@ -1,13 +1,11 @@
 import React, { useContext, useState } from "react";
+import Link from "next/link";
+import CartContext from "../../context/cart/CartContext";
 
 import { Header } from "../components/Header";
 import { TopNav } from "../components/TopNav/";
 import { Footer } from "../components/Footer";
-
 import BottomFooter from "../components/BottomFooter";
-import Link from "next/link";
-import WishlistContext from "../../context/wishlist/WishlistContext";
-import CartContext from "../../context/cart/CartContext";
 
 import styles from "../styles/WishList.module.scss"
 import { AiOutlineArrowLeft } from "react-icons/ai";

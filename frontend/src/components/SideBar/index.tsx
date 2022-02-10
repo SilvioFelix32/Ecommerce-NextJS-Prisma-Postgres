@@ -29,7 +29,7 @@ export default function SideBar({ isCollapsed }: SideBarProps) {
                 <MenuItem icon={<ImPriceTag />}>Oferta do dia</MenuItem>
                 <MenuItem icon={<FaHeart />}>
                     <a
-                        href="/wishlist">
+                        /* href="/wishlist" */>
                         Favoritos
                     </a>
                 </MenuItem>
